@@ -3,14 +3,30 @@
     <img src="https://assets.logrocket.io/img/logo.png"
          alt="logrocket"
          class="h-6" />
-    <h3 class="text-base font-semibold my-1">LogRocket Pricing Page</h3>
+    <h3 class="text-base font-semibold my-1 capitalize">{{ cw.title }}</h3>
     <time datetime="2018-11"
-          class="text-grey-dark text-xs font-semibold">November 2018</time>
+          class="text-grey-dark text-xs font-semibold">{{ date }}</time>
   </article>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    cw: {
+      type: Object,
+      required: true,
+    },
+  },
+  computed: {
+    date() {
+      const date = new Date(this.cw.date)
+      return new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'long',
+      }).format(date)
+    },
+  },
+}
 </script>
 
 <style>

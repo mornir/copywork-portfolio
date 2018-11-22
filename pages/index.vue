@@ -1,28 +1,15 @@
 <template>
-  <section class="flex flex-col min-h-screen">
+  <section class="flex-1 container mx-auto">
 
-    <CWHeader />
-
-    <div class="flex-1 container mx-auto">
-
-      <!--   <article v-for="copywork in copyworks"
-               :key="copywork._id" >
-        <h3>{{ copywork.title }}</h3>
-      </article> -->
-
-      <CWCard />
-
-    </div>
-
-    <CWFooter />
+    <CWCard v-for="cw in copyworks"
+            :key="cw._id"
+            :cw="cw" />
 
   </section>
 </template>
 
 <script>
-import CWHeader from '~/components/CWHeader'
-import CWCard from '~/components/CWCard'
-import CWFooter from '~/components/CWFooter'
+import CWCard from '@/components/CWCard'
 
 import sanity from '~/sanity.js'
 
@@ -30,9 +17,7 @@ const query = `*[_type == "copywork"]`
 
 export default {
   components: {
-    CWHeader,
     CWCard,
-    CWFooter,
   },
   async asyncData({ params }) {
     const copyworks = await sanity.fetch(query).catch(e => console.log(e))

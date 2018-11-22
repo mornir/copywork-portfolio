@@ -1,6 +1,6 @@
 <template>
   <footer class="bg-grey-darkest p-4">
-    <blockquote class="text-white text-center mt-3 mb-8"
+    <blockquote class="text-white text-center mt-3 mb-8 leading-normal"
                 cite="https://www.goodreads.com/author/quotes/5217.George_Bernard_Shaw">Imitation is not just the sincerest form of flattery<br /> - it's the sincerest form of learning.</blockquote>
 
     <div class="flex justify-evenly mb-3">
