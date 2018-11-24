@@ -1,4 +1,13 @@
 import pkg from './package'
+import path from 'path'
+import PurgecssPlugin from 'purgecss-webpack-plugin'
+import glob from 'glob-all'
+
+class TailwindExtractor {
+  static extract(content) {
+    return content.match(/[A-z0-9-:/]+/g) || []
+  }
+}
 
 export default {
   mode: 'universal',
@@ -51,6 +60,13 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    extractCSS: true,
+    postcss: {
+      plugins: {
+        tailwindcss: path.resolve('./tailwind.js'),
+      },
+      preset: { autoprefixer: { grid: true } },
+    },
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
@@ -60,6 +76,22 @@ export default {
           loader: 'eslint-loader',
           exclude: /(node_modules)/,
         })
+      }
+
+      if (!ctx.isDev) {
+        config.plugins.push(
+          new PurgecssPlugin({
+            // purgecss configuration
+            // https://github.com/FullHuman/purgecss
+            paths: glob.sync([
+              path.join(__dirname, './pages/**/*.vue'),
+              path.join(__dirname, './layouts/**/*.vue'),
+              path.join(__dirname, './components/**/*.vue'),
+            ]),
+            extractors: [{ extractor: TailwindExtractor, extensions: ['vue'] }],
+            whitelist: ['html', 'body', 'nuxt-progress'],
+          })
+        )
       }
     },
   },
