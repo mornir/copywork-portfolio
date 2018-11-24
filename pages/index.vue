@@ -11,9 +11,16 @@
 <script>
 import CWCard from '@/components/CWCard'
 
-import sanity from '~/sanity.js'
+import sanity from '@/sanity.js'
 
-const query = `*[_type == "copywork"]`
+const query = `*[_type == "copywork"]{
+  _id,
+  slug,
+  title,
+  color,
+  date,
+  "imageUrl": logo.asset->url
+}`
 
 export default {
   components: {
