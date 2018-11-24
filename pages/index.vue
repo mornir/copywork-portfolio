@@ -15,7 +15,7 @@ import sanity from '@/sanity.js'
 
 const query = `*[_type == "copywork"]{
   _id,
-  slug,
+  "slug": "/" + slug.current,
   title,
   color,
   date,

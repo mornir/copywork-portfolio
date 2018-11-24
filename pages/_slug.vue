@@ -8,10 +8,13 @@
     <CWSeparator :color="cw.color" />
 
     <section>
+
       <div class="flex items-center mb-2">
-        <h3 class="mr-2">Original</h3> <a href="https://www.sanity.io/pricing"
-           class="text-xs text-grey-darker">www.sanity.io/pricing</a>
+        <h3 class="mr-2">Original</h3>
+        <a :href="cw.copiedURL"
+           class="text-xs text-grey-darker">{{ prettyURL }}</a>
       </div>
+
       <video controls
              preload="metadata"
              class="w-full">
@@ -29,7 +32,8 @@
     <section>
       <div class="flex items-center mb-2">
         <h3 class="mr-2">Copy</h3>
-        <span class="text-xs text-grey-darker">November 2018</span>
+        <a :href="codepenFullView"
+           class="text-xs text-grey-darker">{{ codepenFullView }}</a>
       </div>
       <p data-height="265"
          data-theme-id="0"
@@ -38,7 +42,7 @@
          data-user="mornir0"
          :data-pen-title="cw.title"
          data-preview="true"
-         class="codepen">See the Pen <a :href="`https://codepen.io/mornir0/full/${cw.codepen}/`">Sanity Pricing</a> by Jérôme Pott (<a href="https://codepen.io/mornir0">@mornir0</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+         class="codepen">See the Pen <a :href="codepenFullView">Sanity Pricing</a> by Jérôme Pott (<a href="https://codepen.io/mornir0">@mornir0</a>) on <a href="https://codepen.io">CodePen</a>.</p>
       <script async
               src="https://static.codepen.io/assets/embed/ei.js"></script>
     </section>
@@ -61,16 +65,37 @@ const query = `*[_type == "copywork" && slug.current == $slug]{
   title,
   color,
   codepen,
+  copiedURL
 }[0]`
 
 export default {
   name: 'Details',
-  async asyncData({ params }) {
+  async asyncData(ctx) {
+    if (ctx.payload) {
+      return {
+        cw: ctx.payload,
+      }
+    }
+
     const copywork = await sanity
-      .fetch(query, { slug: params.slug })
+      .fetch(query, { slug: ctx.params.slug })
       .catch(e => console.log(e))
 
     return { cw: copywork }
+  },
+  computed: {
+    prettyURL() {
+      const removedProtocol = this.cw.copiedURL.replace('https://', '')
+
+      if (removedProtocol.startsWith('www.')) {
+        return removedProtocol
+      } else {
+        return 'www.' + removedProtocol
+      }
+    },
+    codepenFullView() {
+      return 'https://codepen.io/mornir0/full/' + this.cw.codepen
+    },
   },
   components: {
     CWSeparator,

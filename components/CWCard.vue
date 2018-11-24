@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`/${cw.slug.current}`"
+  <nuxt-link :to="cw.slug"
              class="no-underline">
     <article class="border-purple-dark border border-2 p-4 mx-6 text-center my-rounded"
              :style="`border-color: ${cw.color}`">
