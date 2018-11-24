@@ -85,6 +85,7 @@ export default {
   },
   computed: {
     prettyURL() {
+      if (!this.cw.copiedURL) return
       const removedProtocol = this.cw.copiedURL.replace('https://', '')
 
       if (removedProtocol.startsWith('www.')) {
