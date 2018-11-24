@@ -21,11 +21,15 @@ const query = `*[_type == "copywork"]{
 export default {
   mode: 'universal',
 
+  server: {
+    port: 8080, // default: 3000
+  },
+
   /*
    ** Headers of the page
    */
   head: {
-    title: pkg.name,
+    title: 'Copywork',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -107,9 +111,6 @@ export default {
 
   generate: {
     async routes() {
-      /* return [
-        '/sanity-pricing-page'
-      ] */
       const copyworks = await sanity.fetch(query).catch(e => console.log(e))
 
       return copyworks.map(cw => ({
