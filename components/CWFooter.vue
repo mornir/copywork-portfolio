@@ -1,10 +1,10 @@
 <template>
   <footer class="bg-grey-darkest p-4"
           :style="`background-color: ${color}`">
-    <blockquote class="text-white text-center mt-3 mb-8 leading-normal"
-                cite="https://www.goodreads.com/author/quotes/5217.George_Bernard_Shaw">Imitation is not just the sincerest form of flattery<br /> - it's the sincerest form of learning.</blockquote>
+    <blockquote class="text-white text-center mt-3 mb-8 md:mb-3 leading-normal"
+                cite="https://www.goodreads.com/author/quotes/5217.George_Bernard_Shaw">Imitation is not just the sincerest form of flattery<br class="md:hidden" /> - it's the sincerest form of learning.</blockquote>
 
-    <CWSocials />
+    <CWSocials class="flex md:hidden" />
 
   </footer>
 </template>

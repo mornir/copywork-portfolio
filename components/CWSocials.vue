@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-evenly mb-3">
+  <div class="justify-evenly mb-3">
 
     <!-- CodePen -->
     <a href="https://codepen.io/collection/DEmLgb"
