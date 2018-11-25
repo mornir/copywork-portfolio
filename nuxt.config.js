@@ -66,6 +66,12 @@ export default {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
+  vue: {
+    config: {
+      productionTip: false,
+    },
+  },
+
   /*
    ** Build configuration
    */
