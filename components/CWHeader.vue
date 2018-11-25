@@ -1,6 +1,7 @@
 <template>
   <header class="header-footer-bg text-center pt-4 pb-3 px-4 md:flex justify-between">
-    <nuxt-link to="/">
+    <nuxt-link to="/" class="no-underline">
+      <img class="h-12 " src="/logo.svg" />
       <svg xmlns="http://www.w3.org/2000/svg"
            class="h-10 text-white fill-current"
            viewBox="0 0 223 46">
