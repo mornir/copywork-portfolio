@@ -1,7 +1,7 @@
 <template>
   <nuxt-link :to="cw.slug"
              class="no-underline">
-    <article class="border-purple-dark border border-2 p-4 mx-6 text-center my-rounded"
+    <article class="border-purple-dark border-2 p-4 mx-6 text-center my-rounded copywork"
              :style="`border-color: ${cw.color}`">
       <img :src="cw.imageUrl"
            alt="logrocket"
@@ -37,5 +37,15 @@ export default {
 <style>
 .my-rounded {
   border-radius: 1.5rem;
+}
+
+@media (hover: hover) {
+  .copywork {
+    filter: grayscale(100%);
+  }
+
+  .copywork:hover {
+    filter: grayscale(0%);
+  }
 }
 </style>
