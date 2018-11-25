@@ -101,6 +101,9 @@ export default {
   components: {
     CWSeparator,
   },
+  created() {
+    this.$root.$emit('changeColor', this.cw.color)
+  },
 }
 </script>
 

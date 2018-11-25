@@ -1,5 +1,5 @@
 <template>
-  <section class="flex-1 container mx-auto">
+  <section class="flex-1 container mx-auto flex flex-col justify-around">
 
     <CWCard v-for="cw in copyworks"
             :key="cw._id"
@@ -29,6 +29,9 @@ export default {
   async asyncData({ params }) {
     const copyworks = await sanity.fetch(query).catch(e => console.log(e))
     return { copyworks }
+  },
+  created() {
+    this.$root.$emit('changeColor', '#3D4852')
   },
 }
 </script>

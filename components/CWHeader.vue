@@ -1,5 +1,6 @@
 <template>
-  <header class="text-center pt-4 pb-3 bg-grey-darkest">
+  <header class="text-center pt-4 pb-3 bg-grey-darkest"
+          :style="`background-color: ${color}`">
     <nuxt-link to="/">
       <svg xmlns="http://www.w3.org/2000/svg"
            class="h-10 text-white fill-current"
@@ -11,7 +12,16 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      color: '#3D4852',
+    }
+  },
+  created() {
+    this.$root.$on('changeColor', color => (this.color = color))
+  },
+}
 </script>
 
 <style>
