@@ -55,3 +55,7 @@
   * @import "utilities/background-patterns";
   * @import "utilities/skew-transforms";
   */
+  
+  .justify-evenly {
+    justify-content: space-evenly;
+  }
