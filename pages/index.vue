@@ -30,9 +30,10 @@ export default {
     const copyworks = await sanity.fetch(query).catch(e => console.log(e))
     return { copyworks }
   },
-  created() {
-    this.$root.$emit('changeColor', '#3D4852')
-  },
+  async mounted () {
+    await this.$nextTick()
+    document.documentElement.style.setProperty('--main-color', '#3D4852');
+	}
 }
 </script>
 

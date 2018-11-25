@@ -102,8 +102,14 @@ export default {
     CWSeparator,
   },
   created() {
-    this.$root.$emit('changeColor', this.cw.color)
+    //this.$root.$emit('changeColor', this.cw.color)
   },
+   async mounted () {
+    await this.$nextTick()
+   // console.dir(document.documentElement)
+    document.documentElement.style.setProperty('--main-color', this.cw.color);
+
+	}
 }
 </script>
 

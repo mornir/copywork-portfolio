@@ -1,6 +1,5 @@
 <template>
-  <header class="text-center pt-4 pb-3 px-4 bg-grey-darkest md:flex justify-between"
-          :style="`background-color: ${color}`">
+  <header class="header-footer-bg text-center pt-4 pb-3 px-4 md:flex justify-between">
     <nuxt-link to="/">
       <svg xmlns="http://www.w3.org/2000/svg"
            class="h-10 text-white fill-current"
@@ -15,18 +14,11 @@
 <script>
 import CWSocials from '@/components/CWSocials'
 export default {
-  data() {
-    return {
-      color: '#3D4852',
-    }
-  },
-  created() {
-    this.$root.$on('changeColor', color => (this.color = color))
-  },
   components: {
     CWSocials,
   },
 }
+
 </script>
 
 <style>

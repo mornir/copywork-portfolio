@@ -22,6 +22,14 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Pacifico');
 
+:root {
+  --main-color: #3D4852;
+}
+
+.header-footer-bg {
+  background-color: var(--main-color);
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
 }
