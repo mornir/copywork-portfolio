@@ -28,7 +28,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
   },
 
   /*
@@ -46,12 +46,7 @@ export default {
    */
   plugins: [],
 
-  /*
-   ** Nuxt.js modules
-   */
-  modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
-  ],
+  modules: ['@nuxtjs/pwa'],
   /*
    ** Axios module configuration
    */
@@ -124,5 +119,18 @@ export default {
         },
       }))
     },
+  },
+
+  manifest: {
+    name: 'Copywork',
+    short_name: 'Copywork',
+    description: 'Collection of personal websites reproductions',
+    lang: 'en-US',
+    theme_color: '#3d4852',
+    background_color: '#3d4852',
+    display: 'standalone',
+    orientation: 'portrait-primary',
+    scope: '/',
+    start_url: '/',
   },
 }
