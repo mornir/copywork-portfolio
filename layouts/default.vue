@@ -23,7 +23,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Pacifico');
 
 :root {
-  --main-color: #3D4852;
+  --main-color: #3d4852;
 }
 
 .header-footer-bg {
