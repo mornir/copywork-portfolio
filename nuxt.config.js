@@ -48,10 +48,12 @@ export default {
 
   modules: [
     '@nuxtjs/pwa',
-    '@nuxtjs/google-analytics',
-    {
-      id: 'UA-129845263-1',
-    },
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: 'UA-129845263-1',
+      },
+    ],
   ],
   /*
    ** Axios module configuration
