@@ -12,3 +12,6 @@ dist
 
 # Sanity
 sanity.js
+
+# Service Worker
+sw.*
