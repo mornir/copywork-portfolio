@@ -1,10 +1,13 @@
 <template>
-  <section class="flex-1 container mx-auto flex flex-col justify-around">
+  <section class="flex-1 container mx-auto">
 
-    <CWCard v-for="cw in copyworks"
-            :key="cw._id"
-            :cw="cw" />
+    <div class="cw-grid p-4">
 
+      <CWCard v-for="cw in copyworks"
+              :key="cw._id"
+              :cw="cw" />
+
+    </div>
   </section>
 </template>
 
@@ -36,5 +39,18 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.cw-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .cw-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+  }
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
   <nuxt-link :to="cw.slug"
              class="no-underline">
-    <article class="border-purple-dark border-2 p-4 mx-6 text-center my-rounded copywork"
+    <article class="border-purple-dark border-2 p-4 text-center my-rounded copywork"
              :style="`border-color: ${cw.color}`">
       <img :src="cw.imageUrl"
            alt="logrocket"
