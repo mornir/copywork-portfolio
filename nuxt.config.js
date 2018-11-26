@@ -1,8 +1,15 @@
+require('dotenv').config()
+import sanityClient from '@sanity/client'
 import pkg from './package'
 import path from 'path'
 import PurgecssPlugin from 'purgecss-webpack-plugin'
 import glob from 'glob-all'
-import sanity from './sanity.js'
+
+const sanity = sanityClient({
+  projectId: process.env.PROJECT_ID,
+  dataset: process.env.DATASET,
+  useCdn: true,
+})
 
 class TailwindExtractor {
   static extract(content) {

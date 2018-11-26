@@ -58,8 +58,14 @@
 </template>
 
 <script>
+import sanityClient from '@sanity/client'
 import CWSeparator from '@/components/CWSeparator'
-import sanity from '@/sanity.js'
+
+const sanity = sanityClient({
+  projectId: process.env.PROJECT_ID,
+  dataset: process.env.DATASET,
+  useCdn: true,
+})
 
 const query = `*[_type == "copywork" && slug.current == $slug]{
   title,
@@ -104,12 +110,11 @@ export default {
   created() {
     //this.$root.$emit('changeColor', this.cw.color)
   },
-   async mounted () {
+  async mounted() {
     await this.$nextTick()
-   // console.dir(document.documentElement)
-    document.documentElement.style.setProperty('--main-color', this.cw.color);
-
-	}
+    // console.dir(document.documentElement)
+    document.documentElement.style.setProperty('--main-color', this.cw.color)
+  },
 }
 </script>
 
