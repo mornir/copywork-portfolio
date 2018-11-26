@@ -60,13 +60,7 @@
 <script>
 import sanity from '@/sanity'
 import CWSeparator from '@/components/CWSeparator'
-
-const query = `*[_type == "copywork" && slug.current == $slug]{
-  title,
-  color,
-  codepen,
-  copiedURL
-}[0]`
+import queries from '@/queries'
 
 export default {
   name: 'Details',
@@ -78,7 +72,7 @@ export default {
     }
 
     const copywork = await sanity
-      .fetch(query, { slug: ctx.params.slug })
+      .fetch(queries.oneCW, { slug: ctx.params.slug })
       .catch(e => console.log(e))
 
     return { cw: copywork }

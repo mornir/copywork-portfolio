@@ -3,20 +3,13 @@ import path from 'path'
 import PurgecssPlugin from 'purgecss-webpack-plugin'
 import glob from 'glob-all'
 import sanity from './sanity'
+import queries from './queries'
 
 class TailwindExtractor {
   static extract(content) {
     return content.match(/[A-z0-9-:/]+/g) || []
   }
 }
-
-const query = `*[_type == "copywork"]{
-  "slug": "/" + slug.current,
-  title,
-  color,
-  codepen,
-  copiedURL
-}`
 
 export default {
   mode: 'universal',
@@ -117,7 +110,9 @@ export default {
 
   generate: {
     async routes() {
-      const copyworks = await sanity.fetch(query).catch(e => console.log(e))
+      const copyworks = await sanity
+        .fetch(queries.generate)
+        .catch(e => console.log(e))
 
       return copyworks.map(cw => ({
         route: cw.slug,

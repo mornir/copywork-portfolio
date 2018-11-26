@@ -15,21 +15,16 @@
 import sanity from '@/sanity'
 import CWCard from '@/components/CWCard'
 
-const query = `*[_type == "copywork"]{
-  _id,
-  "slug": "/" + slug.current,
-  title,
-  color,
-  date,
-  "imageUrl": logo.asset->url
-}`
+import queries from '@/queries'
 
 export default {
   components: {
     CWCard,
   },
   async asyncData({ params }) {
-    const copyworks = await sanity.fetch(query).catch(e => console.log(e))
+    const copyworks = await sanity
+      .fetch(queries.allCW)
+      .catch(e => console.log(e))
     return { copyworks }
   },
   async mounted() {
