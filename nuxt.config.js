@@ -1,15 +1,8 @@
-require('dotenv').config()
-import sanityClient from '@sanity/client'
 import pkg from './package'
 import path from 'path'
 import PurgecssPlugin from 'purgecss-webpack-plugin'
 import glob from 'glob-all'
-
-const sanity = sanityClient({
-  projectId: process.env.PROJECT_ID,
-  dataset: process.env.DATASET,
-  useCdn: true,
-})
+import sanity from './sanity'
 
 class TailwindExtractor {
   static extract(content) {
@@ -64,7 +57,6 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    '@nuxtjs/dotenv',
     // Doc: https://github.com/nuxt-community/axios-module#usage
   ],
   /*

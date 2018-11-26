@@ -9,14 +9,8 @@
 </template>
 
 <script>
-import sanityClient from '@sanity/client'
+import sanity from '@/sanity'
 import CWCard from '@/components/CWCard'
-
-const sanity = sanityClient({
-  projectId: process.env.PROJECT_ID,
-  dataset: process.env.DATASET,
-  useCdn: true,
-})
 
 const query = `*[_type == "copywork"]{
   _id,
@@ -36,7 +30,6 @@ export default {
     return { copyworks }
   },
   async mounted() {
-    console.log(process.env.PROJECT_ID)
     await this.$nextTick()
     document.documentElement.style.setProperty('--main-color', '#3D4852')
   },

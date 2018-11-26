@@ -10,5 +10,5 @@ npm-debug.log
 # Nuxt generate
 dist
 
-.env
-env.config.js
+# Sanity
+sanity.js
