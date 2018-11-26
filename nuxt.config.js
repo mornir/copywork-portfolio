@@ -46,7 +46,13 @@ export default {
    */
   plugins: [],
 
-  modules: ['@nuxtjs/pwa'],
+  modules: [
+    '@nuxtjs/pwa',
+    '@nuxtjs/google-analytics',
+    {
+      id: 'UA-129845263-1',
+    },
+  ],
   /*
    ** Axios module configuration
    */
