@@ -4,7 +4,7 @@
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ npm install
 
@@ -20,3 +20,11 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+## Challenges
+
+Not using Vuex or event Bus, but CSS variables
+`https://github.com/nuxt/nuxt.js/issues/2355`
+
+Get all slugs from Sanity
+https://github.com/sanity-io/example-ecommerce-snipcart-vue/blob/master/nuxt.config.js
