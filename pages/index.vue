@@ -1,12 +1,7 @@
 <template>
   <section class="flex-1 container mx-auto">
-
     <div class="cw-grid p-4">
-
-      <CWCard v-for="cw in copyworks"
-              :key="cw._id"
-              :cw="cw" />
-
+      <CWCard v-for="cw in copyworks" :key="cw._id" :cw="cw"/>
     </div>
   </section>
 </template>
@@ -30,7 +25,7 @@ export default {
           pageName: 'Home',
         },
       })
-      console.log(e)
+      console.error(e)
     })
     return { copyworks }
   },
