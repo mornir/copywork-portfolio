@@ -62,6 +62,8 @@ import sanity from '@/sanity'
 import CWSeparator from '@/components/CWSeparator'
 import queries from '@/queries'
 
+import { captureException } from 'logrocket'
+
 export default {
   name: 'Details',
   async asyncData(ctx) {
@@ -73,7 +75,14 @@ export default {
 
     const copywork = await sanity
       .fetch(queries.oneCW, { slug: ctx.params.slug })
-      .catch(e => console.log(e))
+      .catch(e => {
+        captureException(e, {
+          extra: {
+            pageName: 'Details',
+          },
+        })
+        console.log(e)
+      })
 
     return { cw: copywork }
   },

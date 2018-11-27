@@ -1,7 +1,10 @@
 import pkg from './package'
 import path from 'path'
+
 import PurgecssPlugin from 'purgecss-webpack-plugin'
 import glob from 'glob-all'
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
+
 import sanity from './sanity'
 import queries from './queries'
 
@@ -10,6 +13,8 @@ class TailwindExtractor {
     return content.match(/[A-z0-9-:/]+/g) || []
   }
 }
+
+const isProd = process.env.NODE_ENV === 'production'
 
 export default {
   mode: 'universal',
@@ -44,7 +49,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~plugins/logrocket.js'],
 
   modules: [
     '@nuxtjs/pwa',
@@ -81,6 +86,26 @@ export default {
         tailwindcss: path.resolve('./tailwind.js'),
       },
       preset: { autoprefixer: { grid: true } },
+    },
+    optimization: {
+      minimize: true,
+      minimizer: isProd
+        ? [
+            new UglifyJsPlugin({
+              uglifyOptions: {
+                compress: {
+                  drop_console: true,
+                },
+              },
+            }),
+          ]
+        : [],
+      splitChunks: {
+        chunks: 'all',
+        automaticNameDelimiter: '.',
+        name: undefined,
+        cacheGroups: {},
+      },
     },
     extend(config, ctx) {
       // Run ESLint on save

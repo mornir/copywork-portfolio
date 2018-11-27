@@ -14,17 +14,24 @@
 <script>
 import sanity from '@/sanity'
 import CWCard from '@/components/CWCard'
-
 import queries from '@/queries'
 
+import { captureException } from 'logrocket'
+
 export default {
+  name: 'Home',
   components: {
     CWCard,
   },
   async asyncData({ params }) {
-    const copyworks = await sanity
-      .fetch(queries.allCW)
-      .catch(e => console.log(e))
+    const copyworks = await sanity.fetch(queries.allCW).catch(e => {
+      captureException(e, {
+        extra: {
+          pageName: 'Home',
+        },
+      })
+      console.log(e)
+    })
     return { copyworks }
   },
   async mounted() {
