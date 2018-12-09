@@ -21,12 +21,9 @@
         <video controls
                preload="metadata"
                class="w-full"
-               style="max-height: 400px">
-          <source :src="`https://res.cloudinary.com/infonuagique/video/upload/v1542907224/copywork/${$route.params.slug}.webm`"
-                  type="video/webm">
-
-          <source :src="`https://res.cloudinary.com/infonuagique/video/upload/v1542907224/copywork/${$route.params.slug}.mp4`"
-                  type="video/mp4">Sorry, your browser doesn't support embedded videos.
+               style="max-height: 400px"
+               muted
+               :src="cw.video">
         </video>
 
       </section>
@@ -68,6 +65,8 @@
 
 <script>
 import sanity from '@/sanity'
+import contrast from 'get-contrast'
+
 import CWSeparator from '@/components/CWSeparator'
 import queries from '@/queries'
 
@@ -115,8 +114,15 @@ export default {
     CWSeparator,
   },
   async mounted() {
+    const isContrastOK = contrast.isAccessible('#fff', this.cw.color)
+    console.log(isContrastOK)
+
     await this.$nextTick()
     document.documentElement.style.setProperty('--main-color', this.cw.color)
+
+    if (!isContrastOK) {
+      document.documentElement.style.setProperty('--secondary-color', '#420806')
+    }
   },
 }
 </script>

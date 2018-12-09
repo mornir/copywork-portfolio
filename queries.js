@@ -11,7 +11,8 @@ export default {
   title,
   color,
   codepen,
-  copiedURL
+  copiedURL,
+  video
 }[0]`,
   generate: `*[_type == "copywork"]{
   "slug": "/" + slug.current,
