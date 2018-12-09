@@ -1,7 +1,9 @@
 <template>
   <section class="flex-1 container mx-auto">
     <div class="cw-grid p-4">
-      <CWCard v-for="cw in copyworks" :key="cw._id" :cw="cw"/>
+      <CWCard v-for="cw in copyworks"
+              :key="cw._id"
+              :cw="cw" />
     </div>
   </section>
 </template>
@@ -32,6 +34,7 @@ export default {
   async mounted() {
     await this.$nextTick()
     document.documentElement.style.setProperty('--main-color', '#3D4852')
+    document.documentElement.style.setProperty('--secondary-color', '#fff')
   },
 }
 </script>
