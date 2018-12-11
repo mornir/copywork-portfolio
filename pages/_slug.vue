@@ -21,9 +21,12 @@
         <video controls
                preload="metadata"
                class="w-full"
-               style="max-height: 400px"
-               muted
-               :src="cw.video">
+               style="height: 400px"
+               muted>
+          <source :src="`${cw.video}.webm`"
+                  type="video/webm">
+          <source :src="`${cw.video}.mp4`"
+                  type="video/mp4">Sorry, your browser doesn't support embedded videos.
         </video>
 
       </section>
