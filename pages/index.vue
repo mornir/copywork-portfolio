@@ -36,6 +36,10 @@ export default {
     document.documentElement.style.setProperty('--main-color', '#3D4852')
     document.documentElement.style.setProperty('--secondary-color', '#fff')
   },
+  head: {
+    title: 'Copywork',
+    meta: [{ name: 'twitter:title', content: 'Copywork' }],
+  },
 }
 </script>
 

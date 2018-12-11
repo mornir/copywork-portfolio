@@ -127,6 +127,12 @@ export default {
       document.documentElement.style.setProperty('--secondary-color', '#420806')
     }
   },
+  head() {
+    return {
+      title: this.cw.title,
+      meta: [{ name: 'twitter:title', content: `Copywork — ${this.cw.title}` }],
+    }
+  },
 }
 </script>
 
