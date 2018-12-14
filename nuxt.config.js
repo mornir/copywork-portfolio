@@ -55,6 +55,7 @@ export default {
   plugins: ['~plugins/logrocket.js'],
 
   modules: [
+    '@nuxtjs/dotenv',
     '@nuxtjs/pwa',
     [
       '@nuxtjs/google-analytics',
