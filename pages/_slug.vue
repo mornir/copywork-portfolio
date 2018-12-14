@@ -118,7 +118,6 @@ export default {
   },
   async mounted() {
     const isContrastOK = contrast.isAccessible('#fff', this.cw.color)
-    console.log(isContrastOK)
 
     await this.$nextTick()
     document.documentElement.style.setProperty('--main-color', this.cw.color)
