@@ -25,6 +25,7 @@
     "autoprefixer": "^9.3.1",
     "babel-eslint": "^10.0.1",
     "cross-env": "^5.0.1",
+    "dotenv": "^6.2.0",
     "eslint": "^5.9.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-vue": "^4.0.0",

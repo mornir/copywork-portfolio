@@ -85,6 +85,11 @@ export default {
       preset: { autoprefixer: { grid: true } },
     },
     extend(config, ctx) {
+      // This line prevents dotenv from failing when requiring fs
+      config.node = {
+        fs: 'empty',
+      }
+
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
