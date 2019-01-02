@@ -93,7 +93,7 @@ export default {
             pageName: 'Details',
           },
         })
-        console.error(e)
+        console.error('❌❌❌❌', e)
       })
 
     return { cw: copywork }

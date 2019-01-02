@@ -31,7 +31,7 @@ export default {
           pageName: 'Home',
         },
       })
-      console.error(e)
+      console.error('❌❌❌❌', e)
     })
     return { copyworks }
   },
