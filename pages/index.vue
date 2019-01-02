@@ -66,7 +66,7 @@ export default {
     document.documentElement.style.setProperty('--secondary-color', '#fff')
   },
   beforeDestroy() {
-    clearInterval(this.interval)
+    this.stopInterval()
   },
   head: {
     title: 'Copywork',
