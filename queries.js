@@ -21,4 +21,5 @@ export default {
   codepen,
   copiedURL
 }`,
+  allSlugs: `*[_type == "copywork"].slug.current`,
 }

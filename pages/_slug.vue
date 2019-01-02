@@ -77,6 +77,18 @@ import { captureException } from 'logrocket'
 
 export default {
   name: 'Details',
+  async validate({ params, query }) {
+    const slugs = await sanity.fetch(queries.allSlugs).catch(e => {
+      captureException(e, {
+        extra: {
+          pageName: 'Details',
+        },
+      })
+      console.error('❌❌❌❌', e)
+    })
+    // If FALSE redirect to 404 page
+    return slugs.includes(params.slug)
+  },
   async asyncData(ctx) {
     // Payload come from the generate command in nuxt.config.js
     if (ctx.payload) {
