@@ -6,11 +6,11 @@ This portolio gathers all the websites I copied using the amazing CSS utility fr
 
 The portofolio website is a server-rendered SPA made with Nuxt. Naturally I used Tailwind for the styling. I also made use of CSS variables to dynamically change the header and footer colors (you can learn more about it [in my blog post](https://dev.to/mornir/css-variables-are-great-1k4l)).
 
-The website is PWA enabled: it can be used offline and behaves like a native on smartphones.
+The website is PWA enabled: it can be used offline and behaves like a native app on smartphones.
 
-All sessions and errors are recorded via LogRocket, allowing to easily see, understand and trace errors occurring on the website.
+All sessions and errors are recorded via [LogRocket](https://logrocket.com/), allowing me to easily see, understand and trace errors occurring on the website.
 
-For storing the data, I use a extremely flexible and customisable CMS called Sanity (https://www.sanity.io/), which provides a powerful [GraphQL-like syntax](https://github.com/mornir/copywork-portfolio/blob/master/queries.js) to query only data needed.
+For storing the data, I use an extremely flexible and customisable CMS called [Sanity](https://www.sanity.io/), which provides a powerful [GraphQL-like syntax](https://github.com/mornir/copywork-portfolio/blob/master/queries.js) to query only data needed.
 
 The website is currently not well supported on IE11, but I'll get to it [#30](https://github.com/mornir/copywork-portfolio/issues/30).
 
@@ -32,11 +32,3 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
-
-## Challenges
-
-Not using Vuex or event Bus, but CSS variables
-`https://github.com/nuxt/nuxt.js/issues/2355`
-
-Get all slugs from Sanity
-https://github.com/sanity-io/example-ecommerce-snipcart-vue/blob/master/nuxt.config.js
