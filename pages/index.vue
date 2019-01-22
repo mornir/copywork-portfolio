@@ -60,7 +60,10 @@ export default {
     },
   },
   async mounted() {
-    this.startAnimationInterval()
+    if (matchMedia('(hover:hover)').matches) {
+      this.startAnimationInterval()
+    }
+
     await this.$nextTick()
     document.documentElement.style.setProperty('--main-color', '#3D4852')
     document.documentElement.style.setProperty('--secondary-color', '#fff')
