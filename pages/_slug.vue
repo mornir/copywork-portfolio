@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-4 my-grid my-6">
+  <div class="mx-4 my-grid flex-1  my-6">
     <header class="mt-6">
       <h2 class="text-center">{{ cw.title }}</h2>
     </header>
