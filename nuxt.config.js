@@ -144,7 +144,7 @@ export default {
     lang: 'en-US',
     theme_color: '#3d4852',
     background_color: '#3d4852',
-    display: 'standalone',
+    display: 'minimal-ui',
     orientation: 'portrait-primary',
     scope: '/',
     start_url: '/',
