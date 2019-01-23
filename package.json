@@ -1,7 +1,7 @@
 {
   "name": "copywork-portfolio",
   "version": "1.0.0",
-  "description": "Collection of personal websites reproductions",
+  "description": "Collection of personal website reproductions",
   "author": "Jérôme Pott",
   "private": true,
   "scripts": {

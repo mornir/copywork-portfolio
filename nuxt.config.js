@@ -140,7 +140,7 @@ export default {
   manifest: {
     name: 'Copywork',
     short_name: 'Copywork',
-    description: 'Collection of personal websites reproductions',
+    description: pkg.description,
     lang: 'en-US',
     theme_color: '#3d4852',
     background_color: '#3d4852',
