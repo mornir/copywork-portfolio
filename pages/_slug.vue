@@ -81,7 +81,7 @@ export default {
     const slugs = await sanity.fetch(queries.allSlugs).catch(e => {
       captureException(e, {
         extra: {
-          pageName: 'Details',
+          pageName: this.name,
         },
       })
       console.error('❌❌❌❌', e)
@@ -101,7 +101,7 @@ export default {
         .catch(e => {
           captureException(e, {
             extra: {
-              pageName: 'Details',
+              pageName: this.name,
             },
           })
           console.error('❌❌❌❌', e)
