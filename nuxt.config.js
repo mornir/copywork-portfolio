@@ -133,12 +133,7 @@ export default {
 
       return copyworks.map(cw => ({
         route: cw.slug,
-        payload: {
-          title: cw.title,
-          color: cw.color,
-          codepen: cw.codepen,
-          copiedURL: cw.copiedURL,
-        },
+        payload: cw,
       }))
     },
   },

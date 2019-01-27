@@ -76,7 +76,7 @@ import queries from '@/queries'
 import { captureException } from 'logrocket'
 
 export default {
-  name: 'Details',
+  name: 'Copywork',
   async validate({ params, query }) {
     const slugs = await sanity.fetch(queries.allSlugs).catch(e => {
       captureException(e, {
@@ -95,20 +95,19 @@ export default {
       return {
         cw: ctx.payload,
       }
-    }
-
-    const copywork = await sanity
-      .fetch(queries.oneCW, { slug: ctx.params.slug })
-      .catch(e => {
-        captureException(e, {
-          extra: {
-            pageName: 'Details',
-          },
+    } else {
+      const copywork = await sanity
+        .fetch(queries.oneCW, { slug: ctx.params.slug })
+        .catch(e => {
+          captureException(e, {
+            extra: {
+              pageName: 'Details',
+            },
+          })
+          console.error('❌❌❌❌', e)
         })
-        console.error('❌❌❌❌', e)
-      })
-
-    return { cw: copywork }
+      return { cw: copywork }
+    }
   },
   computed: {
     prettyURL() {
