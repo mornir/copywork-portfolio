@@ -73,13 +73,13 @@ import contrast from 'get-contrast'
 import CWSeparator from '@/components/CWSeparator'
 import queries from '@/queries'
 
-import { captureException } from 'logrocket'
+import LogRocket from 'logrocket'
 
 export default {
   name: 'Copywork',
   async validate({ params, query }) {
     const slugs = await sanity.fetch(queries.allSlugs).catch(e => {
-      captureException(e, {
+      LogRocket.captureException(e, {
         extra: {
           pageName: this.name,
         },
@@ -99,7 +99,7 @@ export default {
       const copywork = await sanity
         .fetch(queries.oneCW, { slug: ctx.params.slug })
         .catch(e => {
-          captureException(e, {
+          LogRocket.captureException(e, {
             extra: {
               pageName: this.name,
             },

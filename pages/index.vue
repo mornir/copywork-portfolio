@@ -14,7 +14,7 @@
 <script>
 import sanity from '@/sanity'
 import queries from '@/queries'
-import { captureException, captureMessage } from 'logrocket'
+import LogRocket from 'logrocket'
 import random from 'lodash.random'
 
 import CWCard from '@/components/CWCard'
@@ -26,7 +26,7 @@ export default {
   },
   async asyncData({ params }) {
     const copyworks = await sanity.fetch(queries.allCW).catch(e => {
-      captureException(e, {
+      LogRocket.captureException(e, {
         extra: {
           pageName: 'Home',
         },
@@ -62,7 +62,7 @@ export default {
   async mounted() {
     // TODO: remove once surge is torn down
     if (this.$route.query.from === 'surge') {
-      captureMessage('Came from Surge')
+      LogRocket.captureMessage('Came from Surge', {})
       console.log('Came from Surge')
     }
 
