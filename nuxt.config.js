@@ -16,6 +16,11 @@ class TailwindExtractor {
 export default {
   mode: 'universal',
 
+  env: {
+    PROJECT_ID: process.env.PROJECT_ID,
+    DATASET: process.env.DATASET,
+  },
+
   server: {
     port: 8080, // default: 3000
   },
