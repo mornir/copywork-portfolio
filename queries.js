@@ -19,7 +19,8 @@ export default {
   title,
   color,
   codepen,
-  copiedURL
+  copiedURL,
+  video
 }`,
   allSlugs: `*[_type == "copywork"].slug.current`,
 }
