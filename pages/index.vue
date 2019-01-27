@@ -14,7 +14,7 @@
 <script>
 import sanity from '@/sanity'
 import queries from '@/queries'
-import { captureException } from 'logrocket'
+import { captureException, captureMessage } from 'logrocket'
 import random from 'lodash.random'
 
 import CWCard from '@/components/CWCard'
@@ -60,6 +60,10 @@ export default {
     },
   },
   async mounted() {
+    if (this.$route.query.from === 'surge') {
+      captureMessage('Came from Surge')
+    }
+
     if (matchMedia('(hover:hover)').matches) {
       this.startAnimationInterval()
     }

@@ -2,7 +2,7 @@
   <main class="flex flex-col min-h-screen">
     <div v-if="showNotif"
          class="text-center bg-red-light text-white font-semibold py-2">🚀 I have moved my portfolio over to <a class="text-black"
-         href="https://copywork.netlify.com">copywork.netlify.com</a></div>
+         href="https://copywork.netlify.com?from=surge">copywork.netlify.com</a></div>
     <CWHeader />
     <nuxt />
     <CWFooter />
