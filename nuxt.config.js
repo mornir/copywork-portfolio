@@ -37,7 +37,8 @@ export default {
       { name: 'twitter:card', content: 'summary' },
       {
         name: 'twitter:image',
-        content: '/_nuxt/icons/icon_512.c8wfcdwd8Fx.png',
+        content:
+          'https://copywork.netlify.com/_nuxt/icons/icon_512.c8wfcdwd8Fx.png',
       },
       { name: 'twitter:creator', content: '@mornir0' },
     ],
