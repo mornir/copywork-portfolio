@@ -14,6 +14,10 @@ For storing the data, I use an extremely flexible and customisable CMS called [S
 
 The website is currently not well supported on IE11, but I'll get to it [#30](https://github.com/mornir/copywork-portfolio/issues/30).
 
+## Environment variables
+
+A `.env` file is needed with two variables from a [Sanity project](https://www.sanity.io/pricing). See `.env.example` file.
+
 ## Build Setup
 
 ```bash
