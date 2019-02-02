@@ -4,6 +4,7 @@
       <CWCard v-for="(cw, index) in copyworks"
               :key="cw._id"
               :cw="cw"
+              data-cy="cw"
               @mouseenter.native="stopInterval"
               @mouseleave.native="startAnimationInterval"
               :class="{'copywork' : index !== randomNumber}" />
