@@ -4,12 +4,7 @@ orbs:
 workflows:
   build:
     jobs:
-      - cypress/install:
-          # run a custom app build step
-          build: 'npm run generate'
       - cypress/run:
-          requires:
-            - cypress/install
           executor: cypress/browsers-chrome69
           browser: chrome
-          start: 'live-server'
+          start: 'npm run start'
