@@ -1,14 +1,12 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1
+  cypress: cypress-io/cypress@1.5.0
 workflows:
   build:
     jobs:
       - cypress/install:
           # run a custom app build step
           build: 'npm run generate'
-      - checkout:
-          path: ~/copywork-portfolio/dist
       - cypress/run:
           requires:
             - cypress/install
