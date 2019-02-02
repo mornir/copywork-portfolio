@@ -1,4 +1,4 @@
-# Portfolio
+# Portfolio [![Netlify Status](https://api.netlify.com/api/v1/badges/eeec1609-923c-4ac8-9822-a4661b2c8953/deploy-status)](https://app.netlify.com/sites/copywork/deploys)
 
 **To see the backend -->** https://github.com/mornir/copywork-cms
 
