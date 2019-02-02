@@ -4,7 +4,7 @@
                class="no-underline">
       <img class="h-12 "
            src="/logo.svg"
-           alt="website logo" />
+           alt="Copywork Logo" />
       <svg xmlns="http://www.w3.org/2000/svg"
            class="h-10 accessible-text-color fill-current"
            viewBox="0 0 223 46">
