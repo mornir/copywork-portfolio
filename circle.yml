@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1.5.0
+  cypress: cypress-io/cypress@1
 workflows:
   build:
     jobs:
@@ -10,6 +10,8 @@ workflows:
       - cypress/run:
           requires:
             - cypress/install
+          - checkout:
+              path: ~/copywork-portfolio/dist
           executor: cypress/browsers-chrome69
           browser: chrome
-          start: 'npm run static'
+          start: 'live-server'
