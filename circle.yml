@@ -7,11 +7,11 @@ workflows:
       - cypress/install:
           # run a custom app build step
           build: 'npm run generate'
+      - checkout:
+          path: ~/copywork-portfolio/dist
       - cypress/run:
           requires:
             - cypress/install
-          - checkout:
-              path: ~/copywork-portfolio/dist
           executor: cypress/browsers-chrome69
           browser: chrome
           start: 'live-server'
