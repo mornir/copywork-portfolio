@@ -5,11 +5,12 @@
               :key="cw._id"
               :cw="cw"
               data-cy="cw"
+              class="copywork"
               @mouseenter.native="stopInterval"
               @mouseleave.native="startAnimationInterval"
               @focus.native="stopInterval"
               @blur.native="startAnimationInterval"
-              :class="{'copywork' : index !== randomNumber}" />
+              :class="{'force-color' : index === randomNumber}" />
     </div>
   </section>
 </template>
@@ -52,14 +53,14 @@ export default {
     startAnimationInterval() {
       const max = this.copyworks.length - 1
 
-      /* this.lightAnimationInterval = setInterval(() => {
+      this.lightAnimationInterval = setInterval(() => {
         let newRandomNumber = random(max)
 
         while (this.randomNumber === newRandomNumber) {
           newRandomNumber = random(max)
         }
         this.randomNumber = newRandomNumber
-      }, 3000) */
+      }, 3000)
     },
   },
   async mounted() {
@@ -114,6 +115,10 @@ export default {
 }
 
 .copywork:focus {
+  filter: grayscale(0%);
+}
+
+.force-color {
   filter: grayscale(0%);
 }
 </style>
