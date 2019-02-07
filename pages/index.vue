@@ -1,6 +1,7 @@
 <template>
-  <section class="flex-1 container mx-auto">
-    <div class="cw-grid p-4">
+  <section class="flex-1">
+    <div id="main"
+         class="cw-grid p-4 max-w-xl mx-auto">
       <CWCard v-for="(cw, index) in copyworks"
               :key="cw._id"
               :cw="cw"
@@ -100,13 +101,14 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
+    
   }
 }
 
 @media (hover: hover) {
   .copywork {
     filter: grayscale(100%);
-    outline: none;
+  /*  outline: none;*/
   }
 
   .copywork:hover {

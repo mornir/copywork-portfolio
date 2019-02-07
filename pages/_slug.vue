@@ -6,7 +6,7 @@
 
     <CWSeparator :color="cw.color" />
 
-    <div class="details-grid">
+    <div id="main" class="details-grid">
 
       <section>
 
