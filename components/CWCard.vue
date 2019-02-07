@@ -8,7 +8,7 @@
            class="h-6" />
       <h3 class="text-base font-semibold my-1 capitalize text-grey-darkest">{{ cw.title }}</h3>
       <time datetime="2018-11"
-            class="text-grey-dark text-xs font-semibold">{{ date }}</time>
+            class="text-grey-darker text-xs font-semibold">{{ date }}</time>
     </article>
   </nuxt-link>
 </template>
