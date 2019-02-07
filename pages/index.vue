@@ -7,6 +7,8 @@
               data-cy="cw"
               @mouseenter.native="stopInterval"
               @mouseleave.native="startAnimationInterval"
+              @focus.native="stopInterval"
+              @blur.native="startAnimationInterval"
               :class="{'copywork' : index !== randomNumber}" />
     </div>
   </section>
@@ -50,14 +52,14 @@ export default {
     startAnimationInterval() {
       const max = this.copyworks.length - 1
 
-      this.lightAnimationInterval = setInterval(() => {
+      /* this.lightAnimationInterval = setInterval(() => {
         let newRandomNumber = random(max)
 
         while (this.randomNumber === newRandomNumber) {
           newRandomNumber = random(max)
         }
         this.randomNumber = newRandomNumber
-      }, 3000)
+      }, 3000) */
     },
   },
   async mounted() {
@@ -103,10 +105,15 @@ export default {
 @media (hover: hover) {
   .copywork {
     filter: grayscale(100%);
+    outline: none;
   }
 
   .copywork:hover {
     filter: grayscale(0%);
   }
+}
+
+.copywork:focus {
+  filter: grayscale(0%);
 }
 </style>
