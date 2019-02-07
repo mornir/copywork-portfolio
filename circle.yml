@@ -1,15 +1,11 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1.5.0
+  cypress: cypress-io/cypress@1
 workflows:
   build:
     jobs:
-      - cypress/install:
-          # run a custom app build step
-          build: 'npm run generate'
       - cypress/run:
-          requires:
-            - cypress/install
           executor: cypress/browsers-chrome69
           browser: chrome
-          start: 'live-server --open=/dist'
+          start: npm run serve
+          wait-on: 'http://localhost:8080'
