@@ -5,9 +5,12 @@
               :key="cw._id"
               :cw="cw"
               data-cy="cw"
+              class="copywork"
               @mouseenter.native="stopInterval"
               @mouseleave.native="startAnimationInterval"
-              :class="{'copywork' : index !== randomNumber}" />
+              @focus.native="stopInterval"
+              @blur.native="startAnimationInterval"
+              :class="{'force-color' : index === randomNumber}" />
     </div>
   </section>
 </template>
@@ -103,10 +106,19 @@ export default {
 @media (hover: hover) {
   .copywork {
     filter: grayscale(100%);
+    outline: none;
   }
 
   .copywork:hover {
     filter: grayscale(0%);
   }
+}
+
+.copywork:focus {
+  filter: grayscale(0%);
+}
+
+.force-color {
+  filter: grayscale(0%);
 }
 </style>
