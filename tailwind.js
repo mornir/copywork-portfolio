@@ -12,6 +12,7 @@ we've done our very best to explain each section.
 
 View the full documentation at https://tailwindcss.com.
 
+
 |-------------------------------------------------------------------------------
 | The default config
 |-------------------------------------------------------------------------------
@@ -23,7 +24,8 @@ View the full documentation at https://tailwindcss.com.
 |
 */
 
-// var defaultConfig = require('tailwindcss').defaultConfig()
+let defaultConfig = require('tailwindcss/defaultConfig')()
+
 
 /*
 |-------------------------------------------------------------------------------
@@ -41,29 +43,29 @@ View the full documentation at https://tailwindcss.com.
 |
 */
 
-var colors = {
+let colors = {
   'transparent': 'transparent',
 
-  'black': '#222b2f',
-  'grey-darkest': '#364349',
-  'grey-darker': '#596a73',
-  'grey-dark': '#70818a',
-  'grey': '#9babb4',
-  'grey-light': '#dae4e9',
-  'grey-lighter': '#f3f7f9',
-  'grey-lightest': '#fafcfc',
+  'black': '#22292f',
+  'grey-darkest': '#3d4852',
+  'grey-darker': '#606f7b',
+  'grey-dark': '#8795a1',
+  'grey': '#b8c2cc',
+  'grey-light': '#dae1e7',
+  'grey-lighter': '#f1f5f8',
+  'grey-lightest': '#f8fafc',
   'white': '#ffffff',
 
-  'red-darkest': '#420806',
-  'red-darker': '#6a1b19',
+  'red-darkest': '#3b0d0c',
+  'red-darker': '#621b18',
   'red-dark': '#cc1f1a',
   'red': '#e3342f',
   'red-light': '#ef5753',
   'red-lighter': '#f9acaa',
   'red-lightest': '#fcebea',
 
-  'orange-darkest': '#542605',
-  'orange-darker': '#7f4012',
+  'orange-darkest': '#462a16',
+  'orange-darker': '#613b1f',
   'orange-dark': '#de751f',
   'orange': '#f6993f',
   'orange-light': '#faad63',
@@ -78,8 +80,8 @@ var colors = {
   'yellow-lighter': '#fff9c2',
   'yellow-lightest': '#fcfbeb',
 
-  'green-darkest': '#032d19',
-  'green-darker': '#0b4228',
+  'green-darkest': '#0f2f21',
+  'green-darker': '#1a4731',
   'green-dark': '#1f9d55',
   'green': '#38c172',
   'green-light': '#51d88a',
@@ -87,15 +89,15 @@ var colors = {
   'green-lightest': '#e3fcec',
 
   'teal-darkest': '#0d3331',
-  'teal-darker': '#174e4b',
+  'teal-darker': '#20504f',
   'teal-dark': '#38a89d',
   'teal': '#4dc0b5',
   'teal-light': '#64d5ca',
   'teal-lighter': '#a0f0ed',
   'teal-lightest': '#e8fffe',
 
-  'blue-darkest': '#05233b',
-  'blue-darker': '#103d60',
+  'blue-darkest': '#12283a',
+  'blue-darker': '#1c3d5a',
   'blue-dark': '#2779bd',
   'blue': '#3490dc',
   'blue-light': '#6cb2eb',
@@ -110,21 +112,21 @@ var colors = {
   'indigo-lighter': '#b2b7ff',
   'indigo-lightest': '#e6e8ff',
 
-  'purple-darkest': '#1f133f',
-  'purple-darker': '#352465',
+  'purple-darkest': '#21183c',
+  'purple-darker': '#382b5f',
   'purple-dark': '#794acf',
   'purple': '#9561e2',
   'purple-light': '#a779e9',
   'purple-lighter': '#d6bbfc',
   'purple-lightest': '#f3ebff',
 
-  'pink-darkest': '#45051e',
-  'pink-darker': '#72173a',
+  'pink-darkest': '#451225',
+  'pink-darker': '#6f213f',
   'pink-dark': '#eb5286',
   'pink': '#f66d9b',
   'pink-light': '#fa7ea8',
   'pink-lighter': '#ffbbca',
-  'pink-lightest': '#ffebef'
+  'pink-lightest': '#ffebef',
 }
 
 module.exports = {
@@ -143,6 +145,7 @@ module.exports = {
   */
 
   colors: colors,
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -167,8 +170,9 @@ module.exports = {
     'sm': '576px',
     'md': '768px',
     'lg': '992px',
-    'xl': '1200px'
+    'xl': '1200px',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -185,13 +189,15 @@ module.exports = {
   | provided by the platform.
   |
   | Class name: .font-{name}
+  | CSS property: font-family
   |
   */
 
   fonts: {
     'sans': [
-      '-apple-system',
+      'system-ui',
       'BlinkMacSystemFont',
+      '-apple-system',
       'Segoe UI',
       'Roboto',
       'Oxygen',
@@ -199,7 +205,8 @@ module.exports = {
       'Cantarell',
       'Fira Sans',
       'Droid Sans',
-      'Helvetica Neue'
+      'Helvetica Neue',
+      'sans-serif',
     ],
     'serif': [
       'Constantia',
@@ -211,7 +218,7 @@ module.exports = {
       'Bitstream Vera Serif',
       'Liberation Serif',
       'Georgia',
-      'serif'
+      'serif',
     ],
     'mono': [
       'Menlo',
@@ -219,9 +226,10 @@ module.exports = {
       'Consolas',
       'Liberation Mono',
       'Courier New',
-      'monospace'
-    ]
+      'monospace',
+    ],
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -239,20 +247,22 @@ module.exports = {
   | prefer, be it rems, ems, pixels or other.
   |
   | Class name: .text-{size}
+  | CSS property: font-size
   |
   */
 
   textSizes: {
-    'xs': '.75rem', // 12px
-    'sm': '.875rem', // 14px
-    'base': '1rem', // 16px
-    'lg': '1.125rem', // 18px
-    'xl': '1.25rem', // 20px
-    '2xl': '1.5rem', // 24px
-    '3xl': '1.875rem', // 30px
-    '4xl': '2.25rem', // 36px
-    '5xl': '3rem' // 48px
+    'xs': '.75rem',     // 12px
+    'sm': '.875rem',    // 14px
+    'base': '1rem',     // 16px
+    'lg': '1.125rem',   // 18px
+    'xl': '1.25rem',    // 20px
+    '2xl': '1.5rem',    // 24px
+    '3xl': '1.875rem',  // 30px
+    '4xl': '2.25rem',   // 36px
+    '5xl': '3rem',      // 48px
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -265,6 +275,7 @@ module.exports = {
   | all of these, so we recommend removing those you don't need.
   |
   | Class name: .font-{weight}
+  | CSS property: font-weight
   |
   */
 
@@ -277,8 +288,9 @@ module.exports = {
     'semibold': 600,
     'bold': 700,
     'extrabold': 800,
-    'black': 900
+    'black': 900,
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -289,6 +301,7 @@ module.exports = {
   | them in Tailwind, leadings.
   |
   | Class name: .leading-{size}
+  | CSS property: line-height
   |
   */
 
@@ -296,8 +309,9 @@ module.exports = {
     'none': 1,
     'tight': 1.25,
     'normal': 1.5,
-    'loose': 2
+    'loose': 2,
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -308,14 +322,16 @@ module.exports = {
   | them in Tailwind, tracking.
   |
   | Class name: .tracking-{size}
+  | CSS property: letter-spacing
   |
   */
 
   tracking: {
     'tight': '-0.05em',
     'normal': '0',
-    'wide': '0.05em'
+    'wide': '0.05em',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -327,10 +343,12 @@ module.exports = {
   | independently if that makes sense for your project.
   |
   | Class name: .text-{color}
+  | CSS property: color
   |
   */
 
   textColors: colors,
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -342,10 +360,33 @@ module.exports = {
   | these independently if that makes sense for your project.
   |
   | Class name: .bg-{color}
+  | CSS property: background-color
   |
   */
 
   backgroundColors: colors,
+
+
+  /*
+  |-----------------------------------------------------------------------------
+  | Background sizes               https://tailwindcss.com/docs/background-size
+  |-----------------------------------------------------------------------------
+  |
+  | Here is where you define your background sizes. We provide some common
+  | values that are useful in most projects, but feel free to add other sizes
+  | that are specific to your project here as well.
+  |
+  | Class name: .bg-{size}
+  | CSS property: background-size
+  |
+  */
+
+  backgroundSize: {
+    'auto': 'auto',
+    'cover': 'cover',
+    'contain': 'contain',
+  },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -357,6 +398,7 @@ module.exports = {
   | width that will be used when you do not specify a border width.
   |
   | Class name: .border{-side?}{-width?}
+  | CSS property: border-width
   |
   */
 
@@ -365,8 +407,9 @@ module.exports = {
     '0': '0',
     '2': '2px',
     '4': '4px',
-    '8': '8px'
+    '8': '8px',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -382,10 +425,12 @@ module.exports = {
   | specify a border color.
   |
   | Class name: .border-{color}
+  | CSS property: border-color
   |
   */
 
-  borderColors: Object.assign({ default: colors['grey-light'] }, colors),
+  borderColors: global.Object.assign({ default: colors['grey-light'] }, colors),
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -396,17 +441,22 @@ module.exports = {
   | is provided, it will be made available as the non-suffixed `.rounded`
   | utility.
   |
-  | Class name: .rounded{-radius?}
+  | If your scale includes a `0` value to reset already rounded corners, it's
+  | a good idea to put it first so other values are able to override it.
+  |
+  | Class name: .rounded{-side?}{-size?}
+  | CSS property: border-radius
   |
   */
 
   borderRadius: {
-    default: '.25rem',
+    'none': '0',
     'sm': '.125rem',
+    default: '.25rem',
     'lg': '.5rem',
     'full': '9999px',
-    'none': '0'
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -425,6 +475,7 @@ module.exports = {
   | awesome classes like .w-2/3.
   |
   | Class name: .w-{size}
+  | CSS property: width
   |
   */
 
@@ -435,6 +486,7 @@ module.exports = {
     '2': '0.5rem',
     '3': '0.75rem',
     '4': '1rem',
+    '5': '1.25rem',
     '6': '1.5rem',
     '8': '2rem',
     '10': '2.5rem',
@@ -456,8 +508,9 @@ module.exports = {
     '1/6': '16.66667%',
     '5/6': '83.33333%',
     'full': '100%',
-    'screen': '100vw'
+    'screen': '100vw',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -471,6 +524,7 @@ module.exports = {
   | needed.
   |
   | Class name: .h-{size}
+  | CSS property: height
   |
   */
 
@@ -481,6 +535,7 @@ module.exports = {
     '2': '0.5rem',
     '3': '0.75rem',
     '4': '1rem',
+    '5': '1.25rem',
     '6': '1.5rem',
     '8': '2rem',
     '10': '2.5rem',
@@ -491,8 +546,9 @@ module.exports = {
     '48': '12rem',
     '64': '16rem',
     'full': '100%',
-    'screen': '100vh'
+    'screen': '100vh',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -505,13 +561,15 @@ module.exports = {
   | these values as needed.
   |
   | Class name: .min-w-{size}
+  | CSS property: min-width
   |
   */
 
   minWidth: {
     '0': '0',
-    'full': '100%'
+    'full': '100%',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -524,14 +582,16 @@ module.exports = {
   | values as needed.
   |
   | Class name: .min-h-{size}
+  | CSS property: min-height
   |
   */
 
   minHeight: {
     '0': '0',
     'full': '100%',
-    'screen': '100vh'
+    'screen': '100vh',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -545,6 +605,7 @@ module.exports = {
   | modify these values as needed.
   |
   | Class name: .max-w-{size}
+  | CSS property: max-width
   |
   */
 
@@ -558,8 +619,9 @@ module.exports = {
     '3xl': '80rem',
     '4xl': '90rem',
     '5xl': '100rem',
-    'full': '100%'
+    'full': '100%',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -572,13 +634,15 @@ module.exports = {
   | these values as needed.
   |
   | Class name: .max-h-{size}
+  | CSS property: max-height
   |
   */
 
   maxHeight: {
     'full': '100%',
-    'screen': '100vh'
+    'screen': '100vh',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -592,6 +656,7 @@ module.exports = {
   | values as needed.
   |
   | Class name: .p{side?}-{size}
+  | CSS property: padding
   |
   */
 
@@ -602,9 +667,17 @@ module.exports = {
     '2': '0.5rem',
     '3': '0.75rem',
     '4': '1rem',
+    '5': '1.25rem',
     '6': '1.5rem',
-    '8': '2rem'
+    '8': '2rem',
+    '10': '2.5rem',
+    '12': '3rem',
+    '16': '4rem',
+    '20': '5rem',
+    '24': '6rem',
+    '32': '8rem',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -618,19 +691,29 @@ module.exports = {
   | values as needed.
   |
   | Class name: .m{side?}-{size}
+  | CSS property: margin
   |
   */
 
   margin: {
+    'auto': 'auto',
     'px': '1px',
     '0': '0',
     '1': '0.25rem',
     '2': '0.5rem',
     '3': '0.75rem',
     '4': '1rem',
+    '5': '1.25rem',
     '6': '1.5rem',
-    '8': '2rem'
+    '8': '2rem',
+    '10': '2.5rem',
+    '12': '3rem',
+    '16': '4rem',
+    '20': '5rem',
+    '24': '6rem',
+    '32': '8rem',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -644,6 +727,7 @@ module.exports = {
   | values as needed.
   |
   | Class name: .-m{side?}-{size}
+  | CSS property: margin
   |
   */
 
@@ -654,9 +738,17 @@ module.exports = {
     '2': '0.5rem',
     '3': '0.75rem',
     '4': '1rem',
+    '5': '1.25rem',
     '6': '1.5rem',
-    '8': '2rem'
+    '8': '2rem',
+    '10': '2.5rem',
+    '12': '3rem',
+    '16': '4rem',
+    '20': '5rem',
+    '24': '6rem',
+    '32': '8rem',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -671,6 +763,7 @@ module.exports = {
   | suffixed `.shadow` utility.
   |
   | Class name: .shadow-{size?}
+  | CSS property: box-shadow
   |
   */
 
@@ -679,8 +772,10 @@ module.exports = {
     'md': '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
     'lg': '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
     'inner': 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
-    'none': 'none'
+    'outline': '0 0 0 3px rgba(52,144,220,0.5)',
+    'none': 'none',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -692,18 +787,20 @@ module.exports = {
   | values as needed.
   |
   | Class name: .z-{index}
+  | CSS property: z-index
   |
   */
 
   zIndex: {
+    'auto': 'auto',
     '0': 0,
     '10': 10,
     '20': 20,
     '30': 30,
     '40': 40,
     '50': 50,
-    'auto': 'auto'
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -715,6 +812,7 @@ module.exports = {
   | values as needed.
   |
   | Class name: .opacity-{name}
+  | CSS property: opacity
   |
   */
 
@@ -723,22 +821,160 @@ module.exports = {
     '25': '.25',
     '50': '.5',
     '75': '.75',
-    '100': '1'
+    '100': '1',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
-  | Packages
+  | SVG fill                                   https://tailwindcss.com/docs/svg
   |-----------------------------------------------------------------------------
   |
-  | Here is where you can define the configuration for any Tailwind packages
-  | you're using. These can be utility packs, component bundles, or even
-  | complete themes. You'll want to reference each package's
-  | documentation for a list of settings available for it.
+  | Here is where you define your SVG fill colors. By default we just provide
+  | `fill-current` which sets the fill to the current text color. This lets you
+  | specify a fill color using existing text color utilities and helps keep the
+  | generated CSS file size down.
+  |
+  | Class name: .fill-{name}
+  | CSS property: fill
   |
   */
 
-  packages: {
-  }
+  svgFill: {
+    'current': 'currentColor',
+  },
+
+
+  /*
+  |-----------------------------------------------------------------------------
+  | SVG stroke                                 https://tailwindcss.com/docs/svg
+  |-----------------------------------------------------------------------------
+  |
+  | Here is where you define your SVG stroke colors. By default we just provide
+  | `stroke-current` which sets the stroke to the current text color. This lets
+  | you specify a stroke color using existing text color utilities and helps
+  | keep the generated CSS file size down.
+  |
+  | Class name: .stroke-{name}
+  | CSS property: stroke
+  |
+  */
+
+  svgStroke: {
+    'current': 'currentColor',
+  },
+
+
+  /*
+  |-----------------------------------------------------------------------------
+  | Modules                  https://tailwindcss.com/docs/configuration#modules
+  |-----------------------------------------------------------------------------
+  |
+  | Here is where you control which modules are generated and what variants are
+  | generated for each of those modules.
+  |
+  | Currently supported variants:
+  |   - responsive
+  |   - hover
+  |   - focus
+  |   - focus-within
+  |   - active
+  |   - group-hover
+  |
+  | To disable a module completely, use `false` instead of an array.
+  |
+  */
+
+  modules: {
+    appearance: ['responsive'],
+    backgroundAttachment: ['responsive'],
+    backgroundColors: ['responsive', 'hover', 'focus'],
+    backgroundPosition: ['responsive'],
+    backgroundRepeat: ['responsive'],
+    backgroundSize: ['responsive'],
+    borderCollapse: [],
+    borderColors: ['responsive', 'hover', 'focus'],
+    borderRadius: ['responsive'],
+    borderStyle: ['responsive'],
+    borderWidths: ['responsive'],
+    cursor: ['responsive'],
+    display: ['responsive'],
+    flexbox: ['responsive'],
+    float: ['responsive'],
+    fonts: ['responsive'],
+    fontWeights: ['responsive', 'hover', 'focus'],
+    height: ['responsive'],
+    leading: ['responsive'],
+    lists: ['responsive'],
+    margin: ['responsive'],
+    maxHeight: ['responsive'],
+    maxWidth: ['responsive'],
+    minHeight: ['responsive'],
+    minWidth: ['responsive'],
+    negativeMargin: ['responsive'],
+    objectFit: false,
+    objectPosition: false,
+    opacity: ['responsive', 'focus'],
+    outline: ['focus'],
+    overflow: ['responsive'],
+    padding: ['responsive'],
+    pointerEvents: ['responsive'],
+    position: ['responsive'],
+    resize: ['responsive'],
+    shadows: ['responsive', 'hover', 'focus'],
+    svgFill: [],
+    svgStroke: [],
+    tableLayout: ['responsive'],
+    textAlign: ['responsive'],
+    textColors: ['responsive', 'hover', 'focus'],
+    textSizes: ['responsive'],
+    textStyle: ['responsive', 'hover', 'focus'],
+    tracking: ['responsive'],
+    userSelect: ['responsive'],
+    verticalAlign: ['responsive'],
+    visibility: ['responsive'],
+    whitespace: ['responsive'],
+    width: ['responsive'],
+    zIndex: ['responsive'],
+  },
+
+
+  /*
+  |-----------------------------------------------------------------------------
+  | Plugins                                https://tailwindcss.com/docs/plugins
+  |-----------------------------------------------------------------------------
+  |
+  | Here is where you can register any plugins you'd like to use in your
+  | project. Tailwind's built-in `container` plugin is enabled by default to
+  | give you a Bootstrap-style responsive container component out of the box.
+  |
+  | Be sure to view the complete plugin documentation to learn more about how
+  | the plugin system works.
+  |
+  */
+
+  plugins: [
+    require('tailwindcss/plugins/container')({
+      // center: true,
+      // padding: '1rem',
+    }),
+  ],
+
+
+  /*
+  |-----------------------------------------------------------------------------
+  | Advanced Options         https://tailwindcss.com/docs/configuration#options
+  |-----------------------------------------------------------------------------
+  |
+  | Here is where you can tweak advanced configuration options. We recommend
+  | leaving these options alone unless you absolutely need to change them.
+  |
+  */
+
+  options: {
+    prefix: '',
+    important: false,
+    separator: ':',
+  },
 
 }

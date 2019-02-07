@@ -1,5 +1,8 @@
 <template>
   <header class="header-footer-bg text-center pt-4 pb-3 px-4 md:flex justify-between items-center">
+    <a href="#main"
+       alt="Skip to content"
+       class="absolute text-white border-2 p-2 opacity-0 focus:opacity-100">Skip to content</a>
     <nuxt-link to="/"
                class="no-underline">
       <img class="h-12 "
@@ -24,5 +27,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+a[alt='Skip to content'] {
+  left: 50%;
+}
 </style>
