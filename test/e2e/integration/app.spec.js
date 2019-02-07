@@ -1,3 +1,6 @@
+// colored: grayscale(0)
+// not colored: grayscale(1)
+
 describe('The Website', () => {
   it('works', () => {
     cy.visit('/')
@@ -5,21 +8,29 @@ describe('The Website', () => {
   })
 
   it('flashes CW randomly', () => {
-    cy.window().then(win => {
-      cy.clock()
-      cy.visit('/')
+    cy.clock()
+    cy.visit('/')
 
-      cy.get('[data-cy="cw"]:not(.copywork)').as('lighted')
+    cy.get('.force-color').as('cw')
 
-      cy.get('@lighted').should('have.css', 'filter', 'none')
-      cy.get('@lighted').should('have.length', 1)
+    cy.get('@cw').should('have.css', 'filter', 'grayscale(0)')
+    cy.get('@cw').should('have.length', 1)
 
-      cy.tick(3000)
+    cy.tick(3000)
 
-      cy.get('@lighted').should('have.css', 'filter', 'grayscale(1)')
+    cy.get('@cw').should('have.css', 'filter', 'grayscale(1)')
 
-      cy.get('[data-cy="cw"]:not(.copywork)').should('have.length', 1)
-    })
+    cy.get('.force-color').should('have.length', 1)
+  })
+
+  it('lights up on focus', () => {
+    cy.clock()
+    cy.visit('/')
+    cy.get('[data-cy="cw"]:last-child')
+      .focus()
+      .should('have.css', 'filter', 'grayscale(0)')
+      .blur()
+      .should('have.css', 'filter', 'grayscale(1)')
   })
 
   it('changes the color of footer and header accordingly', () => {
@@ -41,7 +52,7 @@ describe('The Website', () => {
       },
     })
     cy.visit('/')
-    cy.get('[data-cy="cw"]:not(.copywork)').click()
+    cy.get('[data-cy="cw"]:first-child').click()
 
     cy.contains(title)
 
