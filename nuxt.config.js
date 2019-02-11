@@ -85,6 +85,16 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    babel: {
+      presets({ isServer }) {
+        const targets = isServer
+          ? { node: 'current' }
+          : {
+              browsers: ['>1%', 'not ie 11', 'not op_mini all'],
+            }
+        return [[require.resolve('@nuxt/babel-preset-app'), { targets }]]
+      },
+    },
     extractCSS: true,
     postcss: {
       plugins: {
