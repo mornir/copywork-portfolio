@@ -16,6 +16,7 @@ class TailwindExtractor {
 export default {
   mode: 'universal',
 
+  // https://github.com/nuxt-community/dotenv-module/issues/25
   env: {
     PROJECT_ID: process.env.PROJECT_ID,
     DATASET: process.env.DATASET,
