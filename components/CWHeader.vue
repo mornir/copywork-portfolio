@@ -2,6 +2,7 @@
   <header class="header-footer-bg text-center pt-4 pb-3 px-4 md:flex justify-between items-center">
     <a href="#main"
        alt="Skip to content"
+       data-cy="skip"
        class="absolute text-white border-2 p-2 opacity-0 focus:opacity-100">Skip to content</a>
     <nuxt-link to="/"
                class="no-underline">

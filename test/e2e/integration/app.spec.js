@@ -1,3 +1,5 @@
+import { accessSync } from 'fs'
+
 // colored: grayscale(0)
 // not colored: grayscale(1)
 
@@ -58,5 +60,14 @@ describe('The Website', () => {
 
     cy.get('header').should('have.css', 'background-color', color)
     cy.get('footer').should('have.css', 'background-color', color)
+  })
+
+  it('skips to main content', () => {
+    cy.visit('/')
+    cy.get('[data-cy="skip"]')
+      .focus()
+      .click()
+
+    cy.url().should('include', '/#main')
   })
 })
