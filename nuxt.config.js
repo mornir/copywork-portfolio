@@ -16,6 +16,7 @@ class TailwindExtractor {
 export default {
   mode: 'universal',
 
+  // https://github.com/nuxt-community/dotenv-module/issues/25
   env: {
     PROJECT_ID: process.env.PROJECT_ID,
     DATASET: process.env.DATASET,
@@ -84,6 +85,16 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    babel: {
+      presets({ isServer }) {
+        const targets = isServer
+          ? { node: 'current' }
+          : {
+              browsers: ['>1%', 'not ie 11', 'not op_mini all'],
+            }
+        return [[require.resolve('@nuxt/babel-preset-app'), { targets }]]
+      },
+    },
     extractCSS: true,
     postcss: {
       plugins: {
