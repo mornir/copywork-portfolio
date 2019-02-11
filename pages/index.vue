@@ -84,7 +84,15 @@ export default {
   },
   head: {
     title: 'Copywork',
-    meta: [{ name: 'twitter:title', content: 'Copywork' }],
+    meta: [
+      { name: 'twitter:title', content: 'Copywork' },
+      { name: 'twitter:card', content: 'summary' },
+      {
+        name: 'twitter:image',
+        content:
+          'https://copywork.netlify.com/_nuxt/icons/icon_512.c8wfcdwd8Fx.png',
+      },
+    ],
   },
 }
 </script>
@@ -101,14 +109,13 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
-    
   }
 }
 
 @media (hover: hover) {
   .copywork {
     filter: grayscale(100%);
-  /*  outline: none;*/
+    /*  outline: none;*/
   }
 
   .copywork:hover {

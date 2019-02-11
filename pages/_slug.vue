@@ -6,7 +6,8 @@
 
     <CWSeparator :color="cw.color" />
 
-    <div id="main" class="details-grid">
+    <div id="main"
+         class="details-grid">
 
       <section>
 
@@ -140,7 +141,9 @@ export default {
   head() {
     return {
       title: this.cw.title,
-      meta: [{ name: 'twitter:title', content: `Copywork — ${this.cw.title}` }],
+      meta: [    { name="twitter:card", content="summary_large_image"},{ name: 'twitter:title', content: `Copywork — ${this.cw.title}` },
+      { name: 'twitter:image', content=`https://codepen.io/mornir0/pen/${this.cw.codepen}/image/small.png`}
+  ],
     }
   },
 }
