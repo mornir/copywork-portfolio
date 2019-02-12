@@ -145,11 +145,20 @@ export default {
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: `Copywork — ${this.cw.title}` },
         {
+          name: 'twitter:description',
+          content: `CodePen reproduction of ${this.cw.title}`,
+        },
+        {
           name: 'twitter:image',
           content: `https://codepen.io/mornir0/pen/${
             this.cw.codepen
           }/image/small.png`,
         },
+        {
+          name: 'twitter:image:alt',
+          content: `CodePen reproduction of ${this.cw.title}`,
+        },
+        ,
       ],
     }
   },
