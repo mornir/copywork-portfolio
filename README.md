@@ -12,8 +12,6 @@ All sessions and errors are recorded via [LogRocket](https://logrocket.com/), al
 
 For storing the data, I use an extremely flexible and customisable CMS called [Sanity](https://www.sanity.io/), which provides a powerful [GraphQL-like syntax](https://github.com/mornir/copywork-portfolio/blob/master/queries.js) to query only data needed.
 
-The website is currently not well supported on IE11, but I'll get to it [#30](https://github.com/mornir/copywork-portfolio/issues/30).
-
 ## Environment variables
 
 A `.env` file is needed with two variables from a [Sanity project](https://www.sanity.io/pricing). See `.env.example` file.
