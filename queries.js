@@ -1,5 +1,5 @@
 export default {
-  allCW: `*[_type == "copywork"]{
+  allCW: `*[_type == "copywork"] | order(date desc) {
   _id,
   "slug": "/" + slug.current,
   title,
