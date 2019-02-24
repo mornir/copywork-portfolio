@@ -131,6 +131,8 @@ export default {
   },
 
   generate: {
+    // Use error.vue for 404 error
+    fallback: true,
     async routes() {
       const copyworks = await sanity
         .fetch(queries.generate)
