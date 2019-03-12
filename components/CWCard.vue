@@ -4,7 +4,7 @@
     <article class="border-purple-dark border-2 p-4 text-center my-rounded"
              :style="`border-color: ${cw.color}`">
       <img :src="cw.imageUrl"
-           alt="logrocket"
+           :alt="cw.title"
            class="h-6" />
       <h3 class="text-base font-semibold my-1 capitalize text-grey-darkest">{{ cw.title }}</h3>
       <time datetime="2018-11"
