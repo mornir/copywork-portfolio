@@ -1,6 +1,6 @@
 <template>
   <nuxt-link :to="cw.slug"
-             class="no-underline">
+             class="no-underline focus:outline-none">
     <article class="border-purple-dark border-2 p-4 text-center my-rounded"
              :style="`border-color: ${cw.color}`">
       <img :src="cw.imageUrl"
@@ -37,5 +37,9 @@ export default {
 <style scoped>
 .my-rounded {
   border-radius: 1.5rem;
+}
+
+a:focus article {
+   box-shadow: 0 0 0 3px rgba(52,144,220,0.5);
 }
 </style>
