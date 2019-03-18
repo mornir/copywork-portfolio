@@ -20,6 +20,7 @@
         </div>
 
         <video controls
+               autoplay
                preload="metadata"
                class="w-full"
                style="height: 400px"
