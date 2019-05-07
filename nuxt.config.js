@@ -36,7 +36,10 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description },
       { name: 'twitter:creator', content: '@mornir0' },
-      { name: 'google-site-verification', content: '-YKj7LuDe1vpFYD6aADpMRYaneYDdJ6gfgXKVIpjH_g'}
+      {
+        name: 'google-site-verification',
+        content: '-YKj7LuDe1vpFYD6aADpMRYaneYDdJ6gfgXKVIpjH_g',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
   },
