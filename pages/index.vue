@@ -38,7 +38,6 @@ export default {
       })
       console.error('❌❌❌❌', e)
     })
-    console.log('I have been called 📞')
     return { copyworks }
   },
   data() {
