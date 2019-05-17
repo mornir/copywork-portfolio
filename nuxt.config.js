@@ -60,6 +60,7 @@ export default {
   plugins: ['~plugins/logrocket.js'],
 
   modules: [
+    'nuxt-purgecss',
     '@nuxtjs/dotenv',
     '@nuxtjs/pwa',
     [
@@ -95,10 +96,12 @@ export default {
     },
     extractCSS: true,
     postcss: {
-      plugins: {
-        tailwindcss: path.resolve('./tailwind.js'),
-      },
-      preset: { autoprefixer: { grid: true } },
+      plugins: [
+        // ...
+        require('tailwindcss'),
+        require('autoprefixer'),
+        // ...
+      ],
     },
     extend(config, ctx) {
       // This line prevents dotenv from failing when requiring fs
@@ -114,22 +117,6 @@ export default {
           loader: 'eslint-loader',
           exclude: /(node_modules)/,
         })
-      }
-
-      if (!ctx.isDev) {
-        config.plugins.push(
-          new PurgecssPlugin({
-            // purgecss configuration
-            // https://github.com/FullHuman/purgecss
-            paths: glob.sync([
-              path.join(__dirname, './pages/**/*.vue'),
-              path.join(__dirname, './layouts/**/*.vue'),
-              path.join(__dirname, './components/**/*.vue'),
-            ]),
-            extractors: [{ extractor: TailwindExtractor, extensions: ['vue'] }],
-            whitelist: ['html', 'body', 'nuxt-progress'],
-          })
-        )
       }
     },
   },
