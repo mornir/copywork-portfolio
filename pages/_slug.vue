@@ -1,7 +1,7 @@
 <template>
   <div class="mx-4 my-grid flex-1  my-6">
     <header class="mt-6">
-      <h2 class="text-center">{{ cw.title }}</h2>
+      <h2 class="text-center text-2xl font-semibold">{{ cw.title }}</h2>
     </header>
 
     <CWSeparator :color="cw.color" />
@@ -12,7 +12,7 @@
       <section>
 
         <div class="flex items-center mb-2">
-          <h3 class="mr-2">Original</h3>
+          <h3 class="mr-2 text-xl font-semibold">Original</h3>
           <a :href="cw.copiedURL"
              target="_blank"
              rel="noopener"
@@ -36,7 +36,7 @@
       <section>
 
         <div class="flex items-center mb-2">
-          <h3 class="mr-2">My Copy</h3>
+          <h3 class="mr-2 text-xl font-semibold">My Copy</h3>
           <a :href="codepenFullView"
              class="text-xs text-grey-darker">{{ codepenFullView }}</a>
         </div>
