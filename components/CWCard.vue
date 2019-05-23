@@ -5,7 +5,7 @@
              :style="`border-color: ${cw.color}`">
       <img :src="cw.imageUrl"
            :alt="cw.title"
-           class="h-6" />
+           class="h-6 inline" />
       <h3 class="text-base font-semibold my-1 capitalize text-grey-darkest">{{ cw.title }}</h3>
       <time datetime="2018-11"
             class="text-grey-darker text-xs font-semibold">{{ date }}</time>
@@ -40,6 +40,6 @@ export default {
 }
 
 a:focus article {
-   box-shadow: 0 0 0 3px rgba(52,144,220,0.5);
+  box-shadow: 0 0 0 3px rgba(52, 144, 220, 0.5);
 }
 </style>

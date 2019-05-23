@@ -1,7 +1,7 @@
 <template>
   <section class="flex-1">
     <div id="main"
-         class="cw-grid p-4 max-w-xl mx-auto">
+         class="cw-grid p-4 max-w-3xl mx-auto">
       <CWCard v-for="(cw, index) in copyworks"
               :key="cw._id"
               :cw="cw"
@@ -38,7 +38,6 @@ export default {
       })
       console.error('❌❌❌❌', e)
     })
-    console.log('I have been called 📞')
     return { copyworks }
   },
   data() {
