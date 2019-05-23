@@ -44,6 +44,8 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
   },
 
+  serverMiddleware: ['~/preview.js'],
+
   /*
    ** Customize the progress-bar color
    */
