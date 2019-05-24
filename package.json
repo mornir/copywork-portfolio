@@ -17,7 +17,6 @@
     "@nuxtjs/google-analytics": "^2.2.0",
     "@nuxtjs/pwa": "^3.0.0-beta.16",
     "@sanity/client": "^0.140.17",
-    "cypress": "^3.3.1",
     "get-contrast": "^2.0.0",
     "lodash.random": "^3.2.0",
     "logrocket": "^0.6.21",
