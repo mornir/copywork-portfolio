@@ -38,6 +38,8 @@
         <div class="flex items-center mb-2">
           <h3 class="mr-2 text-xl font-semibold">My Copy</h3>
           <a :href="codepenFullView"
+             target="_blank"
+             rel="noopener"
              class="text-xs text-grey-darker">{{ codepenFullView }}</a>
         </div>
 
