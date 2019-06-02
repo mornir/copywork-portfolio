@@ -23,5 +23,4 @@ export default {
   video
 }`,
   allSlugs: `*[_type == "copywork"].slug.current`,
-  previewCW: `*[_id == $draft_id ][0]`,
 }

@@ -1,17 +1,7 @@
 import pkg from './package'
-import path from 'path'
-
-import PurgecssPlugin from 'purgecss-webpack-plugin'
-import glob from 'glob-all'
 
 import sanity from './sanity'
 import queries from './queries'
-
-class TailwindExtractor {
-  static extract(content) {
-    return content.match(/[A-z0-9-:/]+/g) || []
-  }
-}
 
 export default {
   mode: 'universal',
@@ -129,41 +119,10 @@ export default {
         .fetch(queries.generate)
         .catch(e => console.log(e))
 
-      return copyworks
-        .map(cw => ({
-          route: cw.slug,
-          payload: cw,
-        }))
-        .concat({
-          route: '/draft',
-          payload: {
-            _createdAt: '2019-02-20T14:21:27Z',
-            _id: 'a53993fd-614a-43c7-b243-46e99fc81647',
-            _rev: 'UQZcjlaeN0Wz5PmvgzpS95',
-            _type: 'copywork',
-            _updatedAt: '2019-02-20T16:38:43Z',
-            codepen: 'wNRYqb',
-            color: '#001489',
-            copiedURL:
-              'https://www.sunysuffolk.edu/explore-academics/majors-and-programs/culinary-arts/index.jsp',
-            date: '2019-02-19T23:00:00.000Z',
-            logo: {
-              _type: 'image',
-              asset: {
-                _ref:
-                  'image-9c397a0742491fbb9594df039d3cc4915ff77875-368x112-png',
-                _type: 'reference',
-              },
-            },
-            slug: {
-              _type: 'slug',
-              current: 'suffolk-college',
-            },
-            title: 'Suffolk College',
-            video:
-              'https://res.cloudinary.com/infonuagique/video/upload/v1550680710/copywork/Suffolk/Suffolk',
-          },
-        })
+      return copyworks.map(cw => ({
+        route: cw.slug,
+        payload: cw,
+      }))
     },
   },
 
