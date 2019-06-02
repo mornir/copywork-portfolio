@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "serve": "nuxt -o",
-    "build": "nuxt build --modern=server",
+    "build": "nuxt build",
     "start": "nuxt start",
     "test": "cypress open",
     "generate": "nuxt generate --modern",

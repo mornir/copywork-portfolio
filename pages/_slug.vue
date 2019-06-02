@@ -72,6 +72,7 @@
 
 <script>
 import sanity from '@/sanity'
+import preview from '@/sanityPreview'
 import contrast from 'get-contrast'
 
 import CWSeparator from '@/components/CWSeparator'
@@ -99,19 +100,21 @@ export default {
       return {
         cw: ctx.payload,
       }
-    } else {
-      const copywork = await sanity
-        .fetch(queries.oneCW, { slug: ctx.params.slug })
-        .catch(e => {
-          LogRocket.captureException(e, {
-            extra: {
-              pageName: this.name,
-            },
-          })
-          console.error('❌❌❌❌', e)
-        })
-      return { cw: copywork }
     }
+
+    if (ctx.query.draft) return
+
+    const copywork = await sanity
+      .fetch(queries.oneCW, { slug: ctx.params.slug })
+      .catch(e => {
+        LogRocket.captureException(e, {
+          extra: {
+            pageName: this.name,
+          },
+        })
+        console.error('❌❌❌❌', e)
+      })
+    return { cw: copywork }
   },
   computed: {
     prettyURL() {
@@ -132,9 +135,17 @@ export default {
     CWSeparator,
   },
   async mounted() {
+    if (this.$route.query.draft) {
+      this.cw = await preview.fetch(queries.previewCW, {
+        draft_id: this.$route.query.draft,
+      })
+    }
+
     const isContrastOK = contrast.isAccessible('#fff', this.cw.color)
 
     await this.$nextTick()
+    console.log('mounted')
+    alert('mounted')
     document.documentElement.style.setProperty('--main-color', this.cw.color)
 
     if (!isContrastOK) {
