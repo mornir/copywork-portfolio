@@ -72,7 +72,6 @@
 
 <script>
 import sanity from '@/sanity'
-import preview from '@/sanityPreview'
 import contrast from 'get-contrast'
 
 import CWSeparator from '@/components/CWSeparator'
@@ -135,17 +134,10 @@ export default {
     CWSeparator,
   },
   async mounted() {
-    if (this.$route.query.draft) {
-      this.cw = await preview.fetch(queries.previewCW, {
-        draft_id: this.$route.query.draft,
-      })
-    }
-
     const isContrastOK = contrast.isAccessible('#fff', this.cw.color)
 
     await this.$nextTick()
-    console.log('mounted')
-    alert('mounted')
+
     document.documentElement.style.setProperty('--main-color', this.cw.color)
 
     if (!isContrastOK) {
