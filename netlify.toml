@@ -1,2 +1,4 @@
 [build]
-functions = "./functions/"
+  command = "yarn generate"
+  publish = "dist"
+  functions = "functions"
