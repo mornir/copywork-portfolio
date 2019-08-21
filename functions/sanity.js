@@ -22,7 +22,7 @@ async function backup() {
     dataset: process.env.DATASET,
 
     // Path to write zip-file to
-    outputPath: path.join(__dirname, 'sanity.tar.gz'),
+    outputPath: path.join('/tmp', 'sanity.tar.gz'),
 
     // Whether or not to export assets. Note that this operation is currently slightly lossy;
     // metadata stored on the asset document itself (original filename, for instance) might be lost
@@ -56,7 +56,7 @@ async function backup() {
     },
     media: {
       mimeType: 'application/gzip',
-      body: fs.createReadStream(path.join(__dirname, 'sanity.tar.gz')),
+      body: fs.createReadStream(path.join('/tmp', 'sanity.tar.gz')),
     },
   })
 
