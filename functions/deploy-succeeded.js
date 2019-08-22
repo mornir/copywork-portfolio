@@ -57,7 +57,7 @@ async function backup() {
     },
     media: {
       mimeType: 'application/gzip',
-      body: fs.createReadStream(path.join('/tmp', 'sanity.tar.gz')),
+      body: fs.createReadStream(path.join('/tmp', `${DATASET}.tar.gz`)),
     },
   })
 
