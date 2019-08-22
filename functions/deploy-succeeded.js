@@ -51,7 +51,7 @@ async function backup() {
 
   await drive.files.create({
     requestBody: {
-      name: 'sanity.tar.gz',
+      name: `${DATASET}.tar.gz`,
       mimeType: 'application/gzip',
       parents: [FOLDER_ID],
     },
