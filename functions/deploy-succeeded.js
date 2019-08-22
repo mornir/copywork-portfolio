@@ -5,10 +5,11 @@ const path = require('path')
 const fs = require('fs')
 
 const FOLDER_ID = process.env.FOLDER_ID
+const DATASET = process.env.DATASET
 
 const sanityClient = sanity({
   projectId: process.env.PROJECT_ID,
-  dataset: process.env.DATASET,
+  dataset: DATASET,
   token: process.env.SANITY_TOKEN,
   useCdn: false,
 })
@@ -19,10 +20,10 @@ async function backup() {
     client: sanityClient,
 
     // Name of dataset to export
-    dataset: process.env.DATASET,
+    dataset: DATASET,
 
     // Path to write zip-file to
-    outputPath: path.join('/tmp', 'sanity.tar.gz'),
+    outputPath: path.join('/tmp', `${DATASET}.tar.gz`),
 
     // Whether or not to export assets. Note that this operation is currently slightly lossy;
     // metadata stored on the asset document itself (original filename, for instance) might be lost
