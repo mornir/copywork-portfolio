@@ -70,6 +70,13 @@ async function backup() {
     orderBy: 'createdTime',
   })
 
+  const promisesArray = res.data.files
+    .slice(5)
+    .filter(file => file.createdTime > 9999999)
+    .map(file => drive.files.delete({ fileId: file.id }))
+
+  return Promise.all(promisesArray)
+
   // Keep max. 5 backups
   if (res.data.files.length > 5) {
     // Delete oldest backup
