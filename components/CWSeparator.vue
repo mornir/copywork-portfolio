@@ -1,5 +1,5 @@
 <template>
-  <hr class="w-48 bg-red-dark h-1 border-none rounded-full"
+  <hr class="w-48 h-1 mx-auto border-none rounded-full "
       :style="`background-color: ${color}`">
 </template>
 
