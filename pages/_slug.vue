@@ -81,6 +81,32 @@ import LogRocket from 'logrocket'
 
 export default {
   name: 'Copywork',
+  head() {
+    return {
+      title: this.cw.title,
+            meta: [
+
+               { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: `Copywork — ${this.cw.title}` },
+
+        {
+          name: 'twitter:image',
+          content: `https://codepen.io/mornir0/pen/${
+            this.cw.codepen
+          }/image/small.png`,
+        },
+        {
+          name: 'twitter:image:alt',
+          content: `CodePen reproduction of ${this.cw.title}`,
+        },
+      ],
+    }
+  }, 
+  data() {
+    return {
+      cw: {}
+    }
+  },
   async validate({ params, query }) {
     const slugs = await sanity.fetch(queries.allSlugs).catch(e => {
       LogRocket.captureException(e, {
@@ -144,30 +170,7 @@ export default {
       document.documentElement.style.setProperty('--secondary-color', '#420806')
     }
   },
-  head() {
-    return {
-      title: this.cw.title,
-      meta: [
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: `Copywork — ${this.cw.title}` },
-        {
-          name: 'twitter:description',
-          content: `CodePen reproduction of ${this.cw.title}`,
-        },
-        {
-          name: 'twitter:image',
-          content: `https://codepen.io/mornir0/pen/${
-            this.cw.codepen
-          }/image/small.png`,
-        },
-        {
-          name: 'twitter:image:alt',
-          content: `CodePen reproduction of ${this.cw.title}`,
-        },
-        ,
-      ],
-    }
-  },
+
 }
 </script>
 
