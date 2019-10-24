@@ -1,9 +1,7 @@
-import { accessSync } from 'fs'
-
 // colored: grayscale(0)
 // not colored: grayscale(1)
 
-describe('The Website', () => {
+describe('The Home Page', () => {
   it('works', () => {
     cy.visit('/')
     cy.contains('Imitation is not just the sincerest form of flattery')
@@ -36,7 +34,7 @@ describe('The Website', () => {
   })
 
   it('changes the color of footer and header accordingly', () => {
-    const title = 'ShapeTake Pricing Page'
+    const title = 'TakeShape Pricing Page'
     const color = 'rgb(94, 222, 179)'
     cy.server()
     cy.route({
