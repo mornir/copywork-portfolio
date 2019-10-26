@@ -129,7 +129,7 @@ export default {
     lang: 'en-US',
     theme_color: '#3d4852',
     background_color: '#3d4852',
-    display: 'minimal-ui',
+    display: 'browser',
     orientation: 'portrait-primary',
     scope: '/',
     start_url: '/',
