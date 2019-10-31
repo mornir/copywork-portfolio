@@ -1,4 +1,5 @@
 const differenceInDays = require('date-fns/differenceInDays')
+const parseISO = require('date-fns/parseISO')
 const sanity = require('@sanity/client')
 const exportDataset = require('@sanity/export')
 const { google } = require('googleapis')
@@ -73,7 +74,9 @@ async function backup() {
 
   const promisesArray = res.data.files
     .slice(5)
-    .filter(file => differenceInDays(file.createdTime, new Date()) > 30)
+    .filter(
+      file => differenceInDays(parseISO(file.createdTime), new Date()) > 30
+    )
     .map(file => drive.files.delete({ fileId: file.id }))
 
   return Promise.all(promisesArray)
