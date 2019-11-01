@@ -69,14 +69,15 @@ async function backup() {
   const res = await drive.files.list({
     fields: 'files(id, parents, createdTime)',
     q: `'${FOLDER_ID}' in parents`,
-    orderBy: 'createdTime',
+    orderBy: 'createdTime desc',
   })
 
   const promisesArray = res.data.files
     .slice(5)
-    .filter(
-      file => differenceInDays(parseISO(file.createdTime), new Date()) > 30
-    )
+    .filter(file => {
+      const days = differenceInDays(new Date(), parseISO(file.createdTime))
+      return days > 30
+    })
     .map(file => drive.files.delete({ fileId: file.id }))
 
   return Promise.all(promisesArray)
