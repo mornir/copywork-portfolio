@@ -3,6 +3,7 @@ const parseISO = require('date-fns/parseISO')
 const sanity = require('@sanity/client')
 const exportDataset = require('@sanity/export')
 const { google } = require('googleapis')
+const fetch = require('node-fetch')
 const path = require('path')
 const fs = require('fs')
 
@@ -86,12 +87,24 @@ async function backup() {
 exports.handler = function(event, context, callback) {
   backup()
     .then(() => {
-      callback(null, {
-        statusCode: 200,
-        body: 'Backup completed successfully!',
+      return fetch(process.env.SLACK_WEBHOOK_URL, {
+        headers: {
+          'content-type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({ text: `Backup completed successfully` }),
       })
     })
-    .catch(e => {
-      callback(e)
+    .then(() => {
+      callback(null, {
+        statusCode: 200,
+        body: 'Everything went well!',
+      })
+    })
+    .catch(error => {
+      callback(null, {
+        statusCode: 422,
+        body: `Oops! Something went wrong. ${error}`,
+      })
     })
 }
