@@ -71,9 +71,9 @@ export default {
       console.log('Came from Surge')
     }
 
-    if (matchMedia('(hover:hover)').matches) {
+   /*  if (matchMedia('(hover:hover)').matches) {
       this.startAnimationInterval()
-    }
+    } */
 
     await this.$nextTick()
     document.documentElement.style.setProperty('--main-color', '#3D4852')
