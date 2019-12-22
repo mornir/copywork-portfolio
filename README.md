@@ -1,4 +1,6 @@
-# Portfolio [![Netlify Status](https://api.netlify.com/api/v1/badges/eeec1609-923c-4ac8-9822-a4661b2c8953/deploy-status)](https://app.netlify.com/sites/copywork/deploys)
+# Portfolio [![Netlify Status](https://api.netlify.com/api/v1/badges/eeec1609-923c-4ac8-9822-a4661b2c8953/deploy-status)](https://app.netlify.com/sites/copywork/deploys) [![GitHub Actions](https://github.com/mornir/copywork-portfolio/workflows/End-to-end%20tests/badge.svg)](https://github.com/mornir/copywork-portfolio/actions) 
+
+https://github.com/mornir/copywork-portfolio/workflows/End-to-end%20tests/badge.svg
 
 **To see the backend -->** https://github.com/mornir/copywork-cms
 
