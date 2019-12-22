@@ -71,7 +71,7 @@ export default {
       console.log('Came from Surge')
     }
 
-    if (matchMedia('(hover:hover)').matches) {
+   if (matchMedia('(hover:hover)').matches) {
       this.startAnimationInterval()
     }
 
