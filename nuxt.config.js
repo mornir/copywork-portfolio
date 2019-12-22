@@ -63,6 +63,10 @@ export default {
     },
   },
 
+  buildModules: [
+    '@nuxtjs/tailwindcss'
+  ],
+
   /*
    ** Build configuration
    */
@@ -70,25 +74,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    babel: {
-      presets({ isServer }) {
-        const targets = isServer
-          ? { node: 'current' }
-          : {
-              browsers: ['>1%', 'not ie 11', 'not op_mini all'],
-            }
-        return [[require.resolve('@nuxt/babel-preset-app'), { targets }]]
-      },
-    },
-    extractCSS: true,
-    postcss: {
-      plugins: [
-        // ...
-        require('tailwindcss'),
-        require('autoprefixer'),
-        // ...
-      ],
-    },
     extend(config, ctx) {
       // This line prevents dotenv from failing when requiring fs
       config.node = {
