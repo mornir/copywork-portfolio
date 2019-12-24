@@ -65,12 +65,7 @@ export default {
     },
   },
   async mounted() {
-    // TODO: remove once surge is torn down
-    if (this.$route.query.from === 'surge') {
-      LogRocket.captureMessage('Came from Surge', {})
-      console.log('Came from Surge')
-    }
-
+    
    if (matchMedia('(hover:hover)').matches) {
       this.startAnimationInterval()
     }
