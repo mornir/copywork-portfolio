@@ -87,15 +87,6 @@ async function backup() {
 exports.handler = function(event, context, callback) {
   backup()
     .then(() => {
-      return fetch(process.env.SLACK_WEBHOOK_URL, {
-        headers: {
-          'content-type': 'application/json',
-        },
-        method: 'POST',
-        body: JSON.stringify({ text: `Backup completed successfully` }),
-      })
-    })
-    .then(() => {
       callback(null, {
         statusCode: 200,
         body: 'Everything went well!',
