@@ -30,6 +30,7 @@ $ yarn run generate
 ```
 
 ## Testing
+Testing is done with Cypress.
 
 ```bash
 # serve with hot reload at localhost:3000
