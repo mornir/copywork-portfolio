@@ -46,7 +46,6 @@ export default {
   plugins: ['~plugins/logrocket.js'],
 
   modules: [
-    'nuxt-purgecss',
     '@nuxtjs/dotenv',
     '@nuxtjs/pwa',
     [
@@ -63,9 +62,7 @@ export default {
     },
   },
 
-  buildModules: [
-    '@nuxtjs/tailwindcss'
-  ],
+  buildModules: ['@nuxtjs/tailwindcss'],
 
   /*
    ** Build configuration
