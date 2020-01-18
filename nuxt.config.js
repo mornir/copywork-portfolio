@@ -43,11 +43,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~plugins/logrocket.js'],
 
   modules: [
     '@nuxtjs/dotenv',
     '@nuxtjs/pwa',
+    'nuxt-logrocket',
     [
       '@nuxtjs/google-analytics',
       {
@@ -55,6 +55,11 @@ export default {
       },
     ],
   ],
+
+  logRocket: {
+    logRocketId: 'me-rcunh/copywork',
+    devModeAllowed: false,
+  },
 
   vue: {
     config: {
