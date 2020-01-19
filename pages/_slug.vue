@@ -77,23 +77,18 @@ import contrast from 'get-contrast'
 import CWSeparator from '@/components/CWSeparator'
 import queries from '@/queries'
 
-import LogRocket from 'logrocket'
-
 export default {
   name: 'Copywork',
   head() {
     return {
       title: this.cw.title,
-            meta: [
-
-               { name: 'twitter:card', content: 'summary_large_image' },
+      meta: [
+        { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: `Copywork — ${this.cw.title}` },
 
         {
           name: 'twitter:image',
-          content: `https://codepen.io/mornir0/pen/${
-            this.cw.codepen
-          }/image/small.png`,
+          content: `https://codepen.io/mornir0/pen/${this.cw.codepen}/image/small.png`,
         },
         {
           name: 'twitter:image:alt',
@@ -101,15 +96,19 @@ export default {
         },
       ],
     }
-  }, 
+  },
   data() {
     return {
-      cw: {}
+      cw: {},
     }
   },
-  async validate({ params, query }) {
+  async validate({ app, params, query }) {
+    app.$logRocket.captureMessage(
+      'A message from LogRocket in the validate hook'
+    )
+
     const slugs = await sanity.fetch(queries.allSlugs).catch(e => {
-      LogRocket.captureException(e, {
+      app.$logRocket.captureException(e, {
         extra: {
           pageName: this.name,
         },
@@ -132,7 +131,7 @@ export default {
     const copywork = await sanity
       .fetch(queries.oneCW, { slug: ctx.params.slug })
       .catch(e => {
-        LogRocket.captureException(e, {
+        ctx.app.$logRocket.captureException(e, {
           extra: {
             pageName: this.name,
           },
@@ -170,7 +169,6 @@ export default {
       document.documentElement.style.setProperty('--secondary-color', '#420806')
     }
   },
-
 }
 </script>
 
