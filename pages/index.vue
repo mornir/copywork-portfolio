@@ -19,7 +19,6 @@
 <script>
 import sanity from '@/sanity'
 import queries from '@/queries'
-import LogRocket from 'logrocket'
 import random from 'lodash.random'
 
 import CWCard from '@/components/CWCard'
@@ -29,9 +28,13 @@ export default {
   components: {
     CWCard,
   },
-  async asyncData({ params }) {
+  async asyncData({ app, params }) {
+    app.$logRocket.captureMessage(
+      'A message from LogRocket in the asyncData hook'
+    )
+
     const copyworks = await sanity.fetch(queries.allCW).catch(e => {
-      LogRocket.captureException(e, {
+      app.$logRocket.captureException(e, {
         extra: {
           pageName: 'Home',
         },
@@ -65,8 +68,11 @@ export default {
     },
   },
   async mounted() {
-    
-   if (matchMedia('(hover:hover)').matches) {
+    this.$logRocket.captureMessage(
+      'A message from LogRocket in the mounted hook'
+    )
+
+    if (matchMedia('(hover:hover)').matches) {
       this.startAnimationInterval()
     }
 
