@@ -6,6 +6,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+      - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
@@ -19,7 +20,7 @@ jobs:
         uses: jakepartusch/wait-for-netlify-action@v1
         id: waitFor200
         with:
-          site_name: "copywork"
+          site_name: 'copywork'
           max_timeout: 120
       - name: Cypress run
         uses: cypress-io/github-action@v1
