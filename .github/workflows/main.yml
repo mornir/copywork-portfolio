@@ -16,6 +16,9 @@ jobs:
       - name: Build
         run: |
           yarn generate
+        env:
+          PROJECT_ID: omho7x4p
+          DATASET: copywork
       - name: Waiting for 200 from the Netlify Preview
         uses: jakepartusch/wait-for-netlify-action@v1
         id: waitFor200
