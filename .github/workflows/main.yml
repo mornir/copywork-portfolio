@@ -2,7 +2,7 @@ name: End-to-end tests
 on: [pull_request]
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -10,15 +10,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: Install
-        run: |
-          yarn install
-      - name: Build
-        run: |
-          yarn generate
-        env:
-          PROJECT_ID: omho7x4p
-          DATASET: copywork
       - name: Waiting for 200 from the Netlify Preview
         uses: jakepartusch/wait-for-netlify-action@v1
         id: waitFor200
@@ -29,3 +20,5 @@ jobs:
         uses: cypress-io/github-action@v1
         env:
           CYPRESS_baseUrl: ${{ steps.waitFor200.outputs.url }}
+          PROJECT_ID: omho7x4p
+          DATASET: copywork
