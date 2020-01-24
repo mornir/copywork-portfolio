@@ -10,15 +10,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: Waiting for 200 from the Netlify Preview
-        uses: jakepartusch/wait-for-netlify-action@v1
-        id: waitFor200
-        with:
-          site_name: 'copywork'
-          max_timeout: 120
       - name: Cypress run
         uses: cypress-io/github-action@v1
         env:
-          CYPRESS_baseUrl: ${{ steps.waitFor200.outputs.url }}
+          CYPRESS_baseUrl: 'https://deploy-preview-${{ github.event.number }}--copywork.netlify.com'
           PROJECT_ID: omho7x4p
           DATASET: copywork
+        with:
+          wait-on: 'https://deploy-preview-${{ github.event.number }}--copywork.netlify.com'
+          wait-on-timeout: 90
