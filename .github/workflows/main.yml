@@ -14,8 +14,10 @@ jobs:
         uses: cypress-io/github-action@v1
         env:
           CYPRESS_baseUrl: 'https://deploy-preview-${{ github.event.number }}--copywork.netlify.com'
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           PROJECT_ID: omho7x4p
           DATASET: copywork
         with:
+          record: true
           wait-on: 'https://deploy-preview-${{ github.event.number }}--copywork.netlify.com'
           wait-on-timeout: 90
