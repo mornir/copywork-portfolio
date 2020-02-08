@@ -1,7 +1,7 @@
 # Portfolio
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/eeec1609-923c-4ac8-9822-a4661b2c8953/deploy-status)](https://app.netlify.com/sites/copywork/deploys)
-[![GitHub Actions](https://img.shields.io/github/workflow/status/mornir/copywork-portfolio/End-to-end%20tests?label=build&logo=github&style=for-the-badge)](https://github.com/mornir/copywork-portfolio/actions)
+[![GitHub Actions](https://img.shields.io/github/workflow/status/mornir/copywork-portfolio/End-to-end%20tests?label=build&logo=github&style=for-the-badge)](https://github.com/wearelucid/nuxt-netlify-functions-example/actions)
 [![Cypress Dashboard](https://img.shields.io/badge/cypress-dashboard-blue?style=for-the-badge)](https://dashboard.cypress.io/projects/cr62do/runs)
 
 **To see the backend -->** https://github.com/mornir/copywork-cms
