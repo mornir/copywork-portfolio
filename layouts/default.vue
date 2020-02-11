@@ -1,7 +1,7 @@
 <template>
   <main class="flex flex-col min-h-screen">
     <div v-if="showNotif"
-         class="text-center bg-red-light text-white font-semibold py-2">🚀 I have moved my portfolio over to <a class="text-black"
+         class="py-2 font-semibold text-center text-white bg-red-light">🚀 I have moved my portfolio over to <a class="text-black"
          href="https://copywork.netlify.com?from=surge">copywork.netlify.com</a></div>
     <CWHeader />
     <nuxt />
@@ -35,8 +35,6 @@ export default {
 
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Pacifico');
-
 :root {
   --main-color: #3d4852;
   --secondary-color: #fff;

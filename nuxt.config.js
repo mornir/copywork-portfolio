@@ -27,11 +27,17 @@ export default {
         content: '-YKj7LuDe1vpFYD6aADpMRYaneYDdJ6gfgXKVIpjH_g',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Montserrat|Pacifico&display=swap',
+      },
+    ],
   },
 
-  /*
-   ** Customize the progress-bar color
+  /** Customize the progress-bar color
    */
   loading: { color: '#FFFFFF' },
 
