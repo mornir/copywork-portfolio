@@ -1,10 +1,11 @@
 <template>
   <section class="flex-1">
     <div id="main"
-         class="cw-grid p-4 max-w-3xl mx-auto">
+         class="max-w-3xl p-4 mx-auto cw-grid">
       <CWCard v-for="(cw, index) in copyworks"
               :key="cw._id"
               :cw="cw"
+              :data-test="cw.title"
               data-cy="cw"
               class="copywork"
               @mouseenter.native="stopInterval"
