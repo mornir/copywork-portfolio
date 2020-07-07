@@ -119,14 +119,6 @@ export default {
     return slugs.includes(params.slug)
   },
   async asyncData(ctx) {
-    // Payload come from the generate command in nuxt.config.js
-    if (ctx.payload) {
-      return {
-        cw: ctx.payload,
-      }
-    }
-
-    if (ctx.query.draft) return
 
     const copywork = await sanity
       .fetch(queries.oneCW, { slug: ctx.params.slug })
