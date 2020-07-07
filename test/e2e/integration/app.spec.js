@@ -23,7 +23,7 @@ describe('The Home Page', () => {
     cy.get('.force-color').should('have.length', 1)
   })
 
-  it('lights up on focus', () => {
+  it.skip('lights up on focus', () => {
     cy.clock()
     cy.visit('/')
     cy.get('[data-cy="cw"]:last-child')
@@ -52,12 +52,13 @@ describe('The Home Page', () => {
       },
     })
     cy.visit('/')
-    cy.get(`[data-test="${title}"]`).click().then(() => {
-      cy.contains(title)
-      cy.get('header').should('have.css', 'background-color', color)
-      cy.get('footer').should('have.css', 'background-color', color)
-    })
-
+    cy.get(`[data-test="${title}"]`)
+      .click()
+      .then(() => {
+        cy.contains(title)
+        cy.get('header').should('have.css', 'background-color', color)
+        cy.get('footer').should('have.css', 'background-color', color)
+      })
   })
 
   it('skips to main content', () => {
