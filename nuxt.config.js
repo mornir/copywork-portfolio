@@ -4,7 +4,7 @@ import sanity from './sanity'
 import queries from './queries'
 
 export default {
-  mode: 'universal',
+  target: 'static',
 
   // https://github.com/nuxt-community/dotenv-module/issues/25
   env: {
