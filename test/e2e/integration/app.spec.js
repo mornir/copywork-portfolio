@@ -33,7 +33,7 @@ describe('The Home Page', () => {
       .should('have.css', 'filter', 'grayscale(1)')
   })
 
-  it.only('changes the color of footer and header accordingly', () => {
+  it('changes the color of footer and header accordingly', () => {
     const title = 'TakeShape Pricing Page'
     const color = 'rgb(94, 222, 179)'
     cy.server()
