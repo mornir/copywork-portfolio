@@ -2,6 +2,7 @@ import pkg from './package'
 
 export default {
   target: 'static',
+  components: true,
 
   // https://github.com/nuxt-community/dotenv-module/issues/25
   env: {
@@ -98,7 +99,6 @@ export default {
   },
 
   generate: {
-    // Use error.vue for 404 error
     crawler: true,
     fallback: true,
   },

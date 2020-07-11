@@ -1,81 +1,89 @@
 <template>
-  <div class="mx-4 my-grid flex-1  my-6">
+  <div class="flex-1 mx-4 my-6 my-grid">
     <header class="mt-6">
-      <h2 class="text-center text-2xl font-semibold">{{ cw.title }}</h2>
+      <h2 class="text-2xl font-semibold text-center">{{ cw.title }}</h2>
     </header>
 
-    <CWSeparator :color="cw.color" />
+    <CwSeparator :color="cw.color" />
 
-    <div id="main"
-         class="details-grid">
-
+    <div id="main" class="details-grid">
       <section>
-
         <div class="flex items-center mb-2">
           <h3 class="mr-2 text-xl font-semibold">Original</h3>
-          <a :href="cw.copiedURL"
-             target="_blank"
-             rel="noopener"
-             class="text-xs text-grey-darker">{{ prettyURL }}</a>
+          <a
+            :href="cw.copiedURL"
+            target="_blank"
+            rel="noopener"
+            class="text-xs text-grey-darker"
+            >{{ prettyURL }}</a
+          >
         </div>
 
-        <video controls
-               autoplay
-               preload="metadata"
-               class="w-full"
-               style="height: 400px"
-               muted>
-          <source :src="`${cw.video}.webm`"
-                  type="video/webm">
-          <source :src="`${cw.video}.mp4`"
-                  type="video/mp4">Sorry, your browser doesn't support embedded videos.
+        <video
+          controls
+          autoplay
+          preload="metadata"
+          class="w-full"
+          style="height: 400px"
+          muted
+        >
+          <source :src="`${cw.video}.webm`" type="video/webm" />
+          <source :src="`${cw.video}.mp4`" type="video/mp4" />
+          Sorry, your browser doesn't support embedded videos.
         </video>
-
       </section>
 
       <section>
-
         <div class="flex items-center mb-2">
           <h3 class="mr-2 text-xl font-semibold">My Copy</h3>
-          <a :href="codepenFullView"
-             target="_blank"
-             rel="noopener"
-             class="text-xs text-grey-darker">{{ codepenFullView }}</a>
+          <a
+            :href="codepenFullView"
+            target="_blank"
+            rel="noopener"
+            class="text-xs text-grey-darker"
+            >{{ codepenFullView }}</a
+          >
         </div>
 
-        <p data-height="400"
-           data-theme-id="0"
-           :data-slug-hash="cw.codepen"
-           data-default-tab="result"
-           data-user="mornir0"
-           :data-pen-title="cw.title"
-           data-preview="true"
-           class="codepen">
+        <p
+          data-height="400"
+          data-theme-id="0"
+          :data-slug-hash="cw.codepen"
+          data-default-tab="result"
+          data-user="mornir0"
+          :data-pen-title="cw.title"
+          data-preview="true"
+          class="codepen"
+        >
           See the Pen
           <a :href="codepenFullView">Sanity Pricing</a> by Jérôme Pott (
           <a href="https://codepen.io/mornir0">@mornir0</a>) on
           <a href="https://codepen.io">CodePen</a>.
         </p>
-        <script async
-                src="https://static.codepen.io/assets/embed/ei.js"></script>
-
+        <script
+          async
+          src="https://static.codepen.io/assets/embed/ei.js"
+        ></script>
       </section>
     </div>
-    <CWSeparator :color="cw.color" />
+    <CwSeparator :color="cw.color" />
 
     <section v-if="cw.challenges">
       <h4>Challenges</h4>
-      <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p class="text-justify">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor
+        sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua.
+      </p>
     </section>
   </div>
 </template>
 
 <script>
 import sanity from '@/sanity'
-import contrast from 'get-contrast'
-
-import CWSeparator from '@/components/CWSeparator'
 import queries from '@/queries'
+import contrast from 'get-contrast'
 
 export default {
   name: 'Copywork',
@@ -102,7 +110,7 @@ export default {
       cw: {},
     }
   },
-  async validate({ app, params, query }) {
+  async validate({ app, params }) {
     app.$logRocket.captureMessage(
       'A message from LogRocket in the validate hook'
     )
@@ -110,7 +118,7 @@ export default {
     const slugs = await sanity.fetch(queries.allSlugs).catch(e => {
       app.$logRocket.captureException(e, {
         extra: {
-          pageName: this.name,
+          pageName: params.slug,
         },
       })
       console.error('❌❌❌❌', e)
@@ -118,14 +126,13 @@ export default {
     // If FALSE redirect to 404 page
     return slugs.includes(params.slug)
   },
-  async asyncData(ctx) {
-
+  async asyncData({ app, params }) {
     const copywork = await sanity
-      .fetch(queries.oneCW, { slug: ctx.params.slug })
+      .fetch(queries.oneCW, { slug: params.slug })
       .catch(e => {
-        ctx.app.$logRocket.captureException(e, {
+        app.$logRocket.captureException(e, {
           extra: {
-            pageName: this.name,
+            pageName: ctx.params.slug,
           },
         })
         console.error('❌❌❌❌', e)
@@ -146,9 +153,6 @@ export default {
     codepenFullView() {
       return 'https://codepen.io/mornir0/full/' + this.cw.codepen
     },
-  },
-  components: {
-    CWSeparator,
   },
   async mounted() {
     const isContrastOK = contrast.isAccessible('#fff', this.cw.color)

@@ -1,38 +1,10 @@
 <template>
   <main class="flex flex-col min-h-screen">
-    <div v-if="showNotif"
-         class="py-2 font-semibold text-center text-white bg-red-light">🚀 I have moved my portfolio over to <a class="text-black"
-         href="https://copywork.netlify.com?from=surge">copywork.netlify.com</a></div>
-    <CWHeader />
+    <CwHeader />
     <nuxt />
-    <CWFooter />
+    <CwFooter />
   </main>
 </template>
-
-<script>
-import CWHeader from '@/components/CWHeader'
-import CWFooter from '@/components/CWFooter'
-
-export default {
-  components: {
-    CWHeader,
-    CWFooter,
-  },
-  data() {
-    return {
-      showNotif: false,
-    }
-  },
-  mounted() {
-    if (location.hostname.includes('surge')) {
-      this.showNotif = true
-    } else {
-      this.showNotif = false
-    }
-  },
-}
-</script>
-
 
 <style>
 :root {
