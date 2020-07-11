@@ -1,18 +1,19 @@
 <template>
   <section class="flex-1">
-    <div id="main"
-         class="max-w-3xl p-4 mx-auto cw-grid">
-      <CWCard v-for="(cw, index) in copyworks"
-              :key="cw._id"
-              :cw="cw"
-              :data-test="cw.title"
-              data-cy="cw"
-              class="copywork"
-              @mouseenter.native="stopInterval"
-              @mouseleave.native="startAnimationInterval"
-              @focus.native="stopInterval"
-              @blur.native="startAnimationInterval"
-              :class="{'force-color' : index === randomNumber}" />
+    <div id="main" class="max-w-3xl p-4 mx-auto cw-grid">
+      <CwCard
+        v-for="(cw, index) in copyworks"
+        :key="cw._id"
+        :cw="cw"
+        :data-test="cw.title"
+        data-cy="cw"
+        class="copywork"
+        @mouseenter.native="stopInterval"
+        @mouseleave.native="startAnimationInterval"
+        @focus.native="stopInterval"
+        @blur.native="startAnimationInterval"
+        :class="{ 'force-color': index === randomNumber }"
+      />
     </div>
   </section>
 </template>
@@ -22,13 +23,8 @@ import sanity from '@/sanity'
 import queries from '@/queries'
 import random from 'lodash.random'
 
-import CWCard from '@/components/CWCard'
-
 export default {
   name: 'Home',
-  components: {
-    CWCard,
-  },
   async asyncData({ app, params }) {
     app.$logRocket.captureMessage(
       'A message from LogRocket in the asyncData hook'

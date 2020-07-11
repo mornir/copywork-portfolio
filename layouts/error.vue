@@ -1,15 +1,17 @@
 <template>
-  <div class="flex-1 flex justify-center items-center">
+  <div class="flex items-center justify-center flex-1">
     <div class="text-center">
-      <div v-if="error.statusCode === 404"
-           class="mb-8">
-        <h1 class="capitalize not-found mb-6">Page not found</h1>
+      <div v-if="error.statusCode === 404" class="mb-8">
+        <h1 class="mb-6 capitalize not-found">Page not found</h1>
         <p class="text-lg">We couldn't find what you were looking for.</p>
       </div>
 
       <h1 v-else>An error occurred</h1>
-      <nuxt-link to="/"
-                 class="no-underline px-3 py-2 text-white font-semibold go-home rounded">Go to Home page</nuxt-link>
+      <nuxt-link
+        to="/"
+        class="px-3 py-2 font-semibold text-white no-underline rounded go-home"
+        >Go to Home page</nuxt-link
+      >
     </div>
   </div>
 </template>
