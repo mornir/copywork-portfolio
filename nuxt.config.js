@@ -1,8 +1,5 @@
 import pkg from './package'
 
-import sanity from './sanity'
-import queries from './queries'
-
 export default {
   target: 'static',
 
@@ -102,17 +99,8 @@ export default {
 
   generate: {
     // Use error.vue for 404 error
+    crawler: true,
     fallback: true,
-    async routes() {
-      const copyworks = await sanity
-        .fetch(queries.generate)
-        .catch(e => console.log(e))
-
-      return copyworks.map(cw => ({
-        route: cw.slug,
-        payload: cw,
-      }))
-    },
   },
 
   manifest: {

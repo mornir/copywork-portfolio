@@ -6529,6 +6529,11 @@ nuxt-logrocket@^1.2.8:
     logrocket "^1.0.7"
     logrocket-vuex "^0.0.3"
 
+nuxt-netlify-cache@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/nuxt-netlify-cache/-/nuxt-netlify-cache-1.0.2.tgz#d7196abc9fce3be57f1ceda7a6d586173e071c10"
+  integrity sha512-j+xbxvt8UgLQ4hLhyQyf4LSFxYPuFH4+kK/OqF7vcMKuzrHIp49gD/rt/2YE0SOVUjg22F3YjyVCMFMUuAxREA==
+
 nuxt@2.13.3:
   version "2.13.3"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.13.3.tgz#494f0df34851dfcdbdf4fd092112fa1d4bed1b02"
