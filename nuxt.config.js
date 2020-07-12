@@ -47,7 +47,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
+  plugins: ['~/plugins/preview.client.js'],
 
+  /*
+   ** Nuxt.js modules
+   */
   modules: [
     '@nuxtjs/dotenv',
     '@nuxtjs/pwa',
