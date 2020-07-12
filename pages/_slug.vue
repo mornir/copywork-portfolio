@@ -110,7 +110,11 @@ export default {
       cw: {},
     }
   },
-  async validate({ app, params }) {
+  async validate({ app, params, $preview }) {
+    if ($preview) {
+      return true
+    }
+
     app.$logRocket.captureMessage(
       'A message from LogRocket in the validate hook'
     )
