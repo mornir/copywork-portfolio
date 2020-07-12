@@ -126,18 +126,23 @@ export default {
     // If FALSE redirect to 404 page
     return slugs.includes(params.slug)
   },
-  async asyncData({ app, params }) {
-    const copywork = await sanity
-      .fetch(queries.oneCW, { slug: params.slug })
-      .catch(e => {
-        app.$logRocket.captureException(e, {
-          extra: {
-            pageName: ctx.params.slug,
-          },
+  async asyncData({ app, params, $preview }) {
+    if ($preview) {
+      console.log($preview)
+      return { cw: $preview }
+    } else {
+      const copywork = await sanity
+        .fetch(queries.oneCW, { slug: params.slug })
+        .catch(e => {
+          app.$logRocket.captureException(e, {
+            extra: {
+              pageName: ctx.params.slug,
+            },
+          })
+          console.error('❌❌❌❌', e)
         })
-        console.error('❌❌❌❌', e)
-      })
-    return { cw: copywork }
+      return { cw: copywork }
+    }
   },
   computed: {
     prettyURL() {
