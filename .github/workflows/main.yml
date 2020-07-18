@@ -18,6 +18,8 @@ jobs:
           PROJECT_ID: omho7x4p
           DATASET: copywork
         with:
+          browser: chrome
+          headless: true
           record: true
           wait-on: 'https://deploy-preview-${{ github.event.number }}--copywork.netlify.app'
           wait-on-timeout: 90
