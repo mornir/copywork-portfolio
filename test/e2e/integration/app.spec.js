@@ -23,7 +23,7 @@ describe('The Home Page', () => {
     cy.get('.force-color').should('have.length', 1)
   })
 
-  it.skip('lights up on focus', () => {
+  it('lights up on focus', () => {
     cy.clock()
     cy.visit('/')
     cy.get('[data-cy="cw"]:last-child')
