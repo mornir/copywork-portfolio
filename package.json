@@ -9,6 +9,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "test": "cypress open",
+    "test:ci": "cypress run",
     "export": "nuxt export",
     "serve": "nuxt serve",
     "static": "nuxt build && nuxt export",
