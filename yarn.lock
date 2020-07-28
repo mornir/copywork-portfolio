@@ -5931,16 +5931,6 @@ log-update@^2.3.0:
     cli-cursor "^2.0.0"
     wrap-ansi "^3.0.1"
 
-logrocket-vuex@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/logrocket-vuex/-/logrocket-vuex-0.0.3.tgz#e11d65d384f0c9fdac72f984436cc038adf3db90"
-  integrity sha1-4R1l04Twyf2scvmEQ2zAOK3z25A=
-
-logrocket@^1.0.7:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/logrocket/-/logrocket-1.0.9.tgz#0b4cab2535e0dcdf3c802eb604b109662a403d38"
-  integrity sha512-dsZh4zPRtZlPqmI3n4Sgkh5DeWo+rRh4NZhRm6BH9F3Jfv1WFDutISr1a5bQJb9rITvBbRgw3zTVeWjU71qyBg==
-
 loose-envify@^1.0.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
@@ -6525,14 +6515,6 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
-
-nuxt-logrocket@^1.2.8:
-  version "1.2.10"
-  resolved "https://registry.yarnpkg.com/nuxt-logrocket/-/nuxt-logrocket-1.2.10.tgz#cc63cc4dbe2f82750868ade7ddea1080b0b26335"
-  integrity sha512-2IBDLbeUtyZKRX3TvlaMgHI2eetR1/V6+dMAtB9l2ow7wAOzUjwYEQGLswouKJunvZonfNeDNi7UpOx09+kVDg==
-  dependencies:
-    logrocket "^1.0.7"
-    logrocket-vuex "^0.0.3"
 
 nuxt-netlify-cache@^1.0.2:
   version "1.0.2"

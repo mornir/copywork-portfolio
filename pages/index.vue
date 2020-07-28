@@ -26,16 +26,7 @@ import random from 'lodash.random'
 export default {
   name: 'Home',
   async asyncData({ app, params }) {
-    app.$logRocket.captureMessage(
-      'A message from LogRocket in the asyncData hook'
-    )
-
     const copyworks = await sanity.fetch(queries.allCW).catch(e => {
-      app.$logRocket.captureException(e, {
-        extra: {
-          pageName: 'Home',
-        },
-      })
       console.error('❌❌❌❌', e)
     })
     return { copyworks }
@@ -65,10 +56,6 @@ export default {
     },
   },
   async mounted() {
-    this.$logRocket.captureMessage(
-      'A message from LogRocket in the mounted hook'
-    )
-
     if (matchMedia('(hover:hover)').matches) {
       this.startAnimationInterval()
     }

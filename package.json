@@ -9,6 +9,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "test": "cypress open",
+    "test:ci": "cypress run",
     "export": "nuxt export",
     "serve": "nuxt serve",
     "static": "nuxt build && nuxt export",
@@ -25,7 +26,6 @@
     "lodash.random": "^3.2.0",
     "node-fetch": "^2.6.0",
     "nuxt": "2.13.3",
-    "nuxt-logrocket": "^1.2.8",
     "nuxt-netlify-cache": "^1.0.2"
   },
   "devDependencies": {

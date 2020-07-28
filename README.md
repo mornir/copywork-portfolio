@@ -12,8 +12,6 @@ I built this website with Nuxt.js using its [static mode](https://nuxtjs.org/gui
 
 The website is PWA enabled: it can be used offline and behaves like a native app on smartphones.
 
-All sessions and errors are recorded via [LogRocket](https://logrocket.com/), allowing me to easily see, understand and trace errors occurring on the website.
-
 For storing the data, I use an extremely flexible and customisable CMS called [Sanity](https://www.sanity.io/), which provides a powerful [GraphQL-like syntax](https://groq.dev/) to query only the needed data.
 
 ## Environment variables

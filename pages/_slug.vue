@@ -115,16 +115,7 @@ export default {
       return true
     }
 
-    app.$logRocket.captureMessage(
-      'A message from LogRocket in the validate hook'
-    )
-
     const slugs = await sanity.fetch(queries.allSlugs).catch(e => {
-      app.$logRocket.captureException(e, {
-        extra: {
-          pageName: params.slug,
-        },
-      })
       console.error('❌❌❌❌', e)
     })
     // If FALSE redirect to 404 page
@@ -138,11 +129,6 @@ export default {
       const copywork = await sanity
         .fetch(queries.oneCW, { slug: params.slug })
         .catch(e => {
-          app.$logRocket.captureException(e, {
-            extra: {
-              pageName: ctx.params.slug,
-            },
-          })
           console.error('❌❌❌❌', e)
         })
       return { cw: copywork }
