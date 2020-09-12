@@ -24,7 +24,7 @@
     "date-fns": "^2.12.0",
     "get-contrast": "^2.0.0",
     "lodash.random": "^3.2.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "nuxt": "2.13.3",
     "nuxt-netlify-cache": "^1.0.2"
   },
